@@ -4,4 +4,4 @@ applications:
    memory: 512M 
    host: CodeRed-host
    path: target/code-red-app.war
-   services: codered-mysql
+   #services: codered-mysql
