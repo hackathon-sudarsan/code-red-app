@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions">
+<h:head>
+</h:head>
+<h:body>
+	<p:outputPanel>
+		<p:outputPanel id="header">
+			<p:carousel value="#{carouselBean.advertisementList}"
+				headerText="Responsive" var="advertiseVar"
+				itemStyle="text-align:center" responsive="true">
+				<p:panelGrid columns="2" style="width:100%;margin:10px 0px"
+					columnClasses="label,value" layout="grid"
+					styleClass="ui-panelgrid-blank">
+					<f:facet name="header">
+						<p:graphicImage name="demo/images/car/#{advertiseVar.name}.gif" />
+					</f:facet>
+					<h:outputText value="Name:" />
+					<h:outputText value="#{advertiseVar.name}" />
+
+					<h:outputText value="Description" />
+					<h:outputText value="#{advertiseVar.description}" />
+				</p:panelGrid>
+				<f:facet name="footer">
+                In total there are  cars #{fn:length(carouselBean.advertisementList)} cars.
+        </f:facet>
+			</p:carousel>
+
+
+		</p:outputPanel>
+		<p:outputPanel id="content"></p:outputPanel>
+		<p:outputPanel id="footer"></p:outputPanel>
+	</p:outputPanel>
+
+</h:body>
+</html>
