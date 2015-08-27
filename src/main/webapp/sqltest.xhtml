@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+</h:head>
+<h:body>
+
+	<h:form>
+		<p:panel id="panel" header="Form" style="margin-bottom:10px;">
+			<p:messages id="messages" />
+			 <p:outputLabel id="display"  />
+			<h:panelGrid columns="2" cellpadding="5">
+				<h:outputLabel for="name" value="Standard Label:" />
+				<p:inputTextarea rows="20" cols="60" counter="display"
+					counterTemplate="{0} characters remaining." autoResize="false"
+					value="#{sqlBean.query}" />
+
+
+			</h:panelGrid>
+		</p:panel>
+
+		<p:commandButton value="Submit" update="msg"
+			action="#{sqlBean.executeQuery}" />
+			
+			<p:outputLabel id="msg" value="#{sqlBean.errMsg}" />
+	</h:form>
+
+
+</h:body>
+</html>
