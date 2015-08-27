@@ -1,0 +1,7 @@
+---
+applications: 
+ - name: CodeRed
+   memory: 512M 
+   host: CodeRed-host
+   path: target/code-red-app-1.0-SNAPSHOT.war
+   #services: codered-mysql
