@@ -1,0 +1,87 @@
+mysql> CREATE TABLE pet (name VARCHAR(20), owner VARCHAR(20),species VARCHAR(20), sex CHAR(1), birth DATE, death DATE);
+
+
+
+
+DROP TABLE request_type;
+CREATE TABLE request_type (request_type_oid int, request_text VARCHAR(20));
+
+insert into request_type values(1,'SELL');
+insert into request_type values(2,'BUY');
+
+
+DROP TABLE category;
+
+
+
+create table category
+(
+   category_oid INT,
+   category_name VARCHAR(100)
+);
+
+insert into category values(1,'REAL ESTATE');
+insert into category values(2,'VEHICLES');
+insert into category values(3,'ELECTRONICS');
+insert into category values(4,'BOOKS');
+insert into category values(5,'HOME APPLIANCES');
+insert into category values(6,'OTHERS');
+
+drop table admin_map;
+
+create table admin_map
+(
+   admin_map_oid INT AUTO_INCREMENT PRIMARY KEY,
+   request_type_oid INT,
+   category_oid INT,
+   emp_vz_id VARCHAR(10),
+   emp_first_name VARCHAR(100),
+   emp_last_name VARCHAR(100),
+   emp_phone INT,
+   emp_email_id VARCHAR(100),
+   price float,
+   data_added date,
+   product_title VARCHAR(200),
+   product_comment TEXT,
+   request_status char(1)
+);
+
+
+DELIMITER //
+CREATE PROCEDURE insert_proc(IN v_request_type_oid INT, IN v_category_name VARCHAR(100),
+IN v_emp_vz_id VARCHAR(10),IN v_emp_first_name VARCHAR(100),IN v_emp_last_name VARCHAR(100), IN v_emp_phone INT,
+IN v_emp_email_id VARCHAR(100),IN v_price float, IN v_product_title VARCHAR(200), IN v_product_comment TEXT)
+BEGIN
+declare v_category_oid INT;
+SELECT category_oid 
+FROM category
+WHERE category_name = v_category_name
+into v_category_oid;
+insert into admin_map values(null,v_request_type_oid,v_category_oid,v_emp_vz_id,v_emp_first_name
+,v_emp_last_name,v_emp_phone,v_emp_email_id,v_price,now(),v_product_title,v_product_comment,'P');
+commit;
+END //
+DELIMITER;
+
+CALL insert_proc(1,'VEHICLES','v500','Nad','baig',900,'n@gmail.com',34.99,'swift car','want to see my super swift car');
+
+
+
+insert into admin_map values(null,1,1,'v1','nad','baig',1,'n@gmail.com',34.33,now(),'bla bal','P');
+
+SELECT LAST_INSERT_ID();
+
+drop table admin_map_image;
+
+CREATE TABLE admin_map_image (
+admin_map_image_oid INT AUTO_INCREMENT PRIMARY KEY,
+admin_map_oid INT,
+   image  BLOB);
+
+INSERT INTO admin_map_image VALUES(null,1,LOAD_FILE('c://test.jpg'));
+
+
+sELECT category_oid 
+FROM category
+WHERE category_name = 'REAL ESTATE';
+
