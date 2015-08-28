@@ -9,6 +9,8 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 
+import com.codered.MySqlDataSource;
+
 @ManagedBean(name = "sqlBean")
 public class MySqlBean {
 
@@ -41,7 +43,8 @@ public class MySqlBean {
 	public int executeQuery() {
 		int rows = 0;
 		try {
-			 Class.forName("com.mysql.jdbc.Driver");
+			Class.forName("com.mysql.jdbc.Driver");
+			conn = MySqlDataSource.getConnection();
 			stmt = conn.createStatement();
 			System.out.println("Query : " + this.query);
 			rows = stmt.executeUpdate(this.query);

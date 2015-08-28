@@ -20,30 +20,47 @@
 			</h1>
 			<!-- Cart -->
 			<div id="cart">
-				<p:commandButton value="Post Advertisement" type="button"
-					styleClass="search-submit" onclick="PF('dlg2').show();" />
-				<p:dialog header="POST YOUR ADVERTISEMENT HERE !" widgetVar="dlg2" modal="true"
-					height="100">
-					<h:outputText value="POST YOUR ADVERTISEMENT HERE." />
+			<h:form>
+				<p:commandButton value="Post Advertisement" styleClass="search-submit"
+					onclick="PF('dlg2').show();" />
+					</h:form>
+				<p:dialog header="POST YOUR ADVERTISEMENT HERE !" widgetVar="dlg2"
+					modal="true" height="380" width="400">
+					<h:form>
+						<p:messages id="messages" showDetail="true" autoUpdate="true"
+							closable="true" />
+						<h:panelGrid columns="3" cellpadding="20" cellspacing="20">
+							<h:outputLabel for="Title" value="Title" />
+							<p:inputText id="Title" value="#{advertisement.name}"
+								required="true" label="Title" />
+							<p:message for="Title" />
 
+							<h:outputLabel for="Description" value="Description" />
+							<p:inputText id="Description"
+								value="#{advertisement.description}" required="true"
+								label="Description" />
+							<p:message for="Description" />
 
-					<h:panelGrid columns="2" cellpadding="5">
-						<h:outputLabel for="Title" value="Title" />
-						<p:inputText id="title" value="" required="true" label="Title" />
+							<h:outputLabel for="Price" value="Price" />
+							<p:inputText id="Price" value="#{advertisement.price}"
+								required="true" label="Price" />
+							<p:message for="Price" />
 
-						<h:outputLabel for="description" value="Description" />
-						<p:password id="description" value="" required="true"
-							label="description" />
+							<h:outputLabel for="Phone" value="Phone" />
+							<p:inputText id="Phone" value="#{advertisement.phone}"
+								required="true" label="Phone" />
+							<p:message for="Phone" />
 
-						<f:facet name="footer">
-							<p:commandButton value="POST" />
-						</f:facet>
-					</h:panelGrid>
+							<h:outputLabel for="Email" value="Email" />
+							<p:inputText id="Email" value="#{advertisement.emailId}"
+								required="true" label="Email" />
+							<p:message for="Email" />
 
-
-
-
-
+							<f:facet name="footer">
+								<p:commandButton action="#{advertisement.createAd}" value="POST" />
+							</f:facet>
+						</h:panelGrid>
+					</h:form>
 				</p:dialog>
 				<div class="cl">&nbsp;</div>
 			</div>
@@ -114,7 +131,7 @@
 									<p>
 										Lorem ipsum dolor sit<br />amet
 									</p>
-									<strong class="price">$58.99</strong>
+									<strong class="price">Rs.5000</strong>
 								</div>
 							</div></li>
 						<li><a href="#"> <p:graphicImage
@@ -128,7 +145,7 @@
 									<p>
 										Lorem ipsum dolor sit<br />amet
 									</p>
-									<strong class="price">$58.99</strong>
+									<strong class="price">Rs.5000</strong>
 								</div>
 							</div></li>
 						<li class="last"><a href="#"><p:graphicImage
@@ -141,7 +158,7 @@
 									<p>
 										Lorem ipsum dolor sit<br />amet
 									</p>
-									<strong class="price">$58.99</strong>
+									<strong class="price">Rs.4000</strong>
 								</div>
 							</div></li>
 					</ul>
@@ -161,7 +178,7 @@
 						Search by <span></span>
 					</h2>
 					<div class="box-content">
-						<h:form action="" method="post">
+						<h:form>
 
 							<label>Keyword</label>
 							<p:inputText id="txt1" value="#{searchView.text1}"
@@ -173,7 +190,7 @@
 
 							<p:selectOneMenu styleClass="field" id="country"
 								value="#{searchView.text2}">
-								<f:selectItem itemLabel="Select Country" itemValue=""
+								<f:selectItem itemLabel="Select Category" itemValue=""
 									noSelectionOption="true" />
 								<f:selectItem itemLabel="Electronincs" itemValue="1" />
 								<f:selectItem itemLabel="Option 2" itemValue="2" />
@@ -203,8 +220,8 @@
 							<li><a href="#">AutoMobiles</a></li>
 							<li><a href="#">Fashion</a></li>
 							<li class="last"><a href="#">Others</a></li>
-							
-							
+
+
 						</ul>
 					</div>
 				</div>
@@ -218,7 +235,7 @@
 		<!-- End Main -->
 
 		<!-- Side Full -->
-		
+
 		<!-- End Side Full -->
 
 		<!-- Footer -->
@@ -228,8 +245,7 @@
 				<a href="#">My Account</a> <span>|</span> <a href="#">The Store</a>
 				<span>|</span> <a href="#">Contact</a>
 			</p>
-			<p class="right">Copy Rights yet to be reserved.
-			</p>
+			<p class="right">Copy Rights yet to be reserved.</p>
 		</div>
 		<!-- End Footer -->
 
