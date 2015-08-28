@@ -141,9 +141,12 @@ public class MySqlBean {
 			Class.forName("com.mysql.jdbc.Driver");
 			conn = MySqlDataSource.getConnection();
 			stmt = conn.createStatement();
-			System.out.println("Query : " + this.query);
+		
+			String storeProcCall = "{call insert_proc(?,?,?,?,?,?,?,?,?,?)}";
+			
+			System.out.println("Store Procedure statement : " + storeProcCall);
 
-			CallableStatement cStmt = conn.prepareCall("{call insert_proc(?, ?,?, ?,?, ?,?, ?,?)}");
+			CallableStatement cStmt = conn.prepareCall(storeProcCall);
 
 			String categoryName = "categoryName";
 			String vzId = "vzid";
@@ -159,7 +162,7 @@ public class MySqlBean {
 			cStmt.setString(7, "email"); // EMAIL
 			cStmt.setFloat(8, 1222F);// PRICE (FLOAT)
 			cStmt.setString(9, "title"); // TITLE
-
+			cStmt.setString(10, "description"); // TITLE
 			cStmt.execute();
 
 		} catch (SQLException se) {
