@@ -5,6 +5,8 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 
+import com.codered.managebean.MySqlBean;
+
 @ManagedBean
 public class Advertisement {
 	private String name;
@@ -68,8 +70,9 @@ public class Advertisement {
 			Advertisement adObj = (Advertisement) FacesContext.getCurrentInstance().getApplication().getELResolver()
 					.getValue(el, null, "advertisement");
 			
-			
-			
+			System.out.println("CAlling store procedure"); 
+			new MySqlBean().callSP(adObj);
+			System.out.println("Done with store procedure");
 			 FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Info", "PrimeFaces Rocks."));
 			System.out.println("Inside Post Add" + adObj.toString());
 
