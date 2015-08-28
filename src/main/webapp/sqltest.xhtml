@@ -27,6 +27,9 @@
 
 		<p:commandButton value="Submit" update="msg"
 			action="#{sqlBean.executeQuery}" />
+		
+		<p:commandButton value="Read Query" update="msg"
+			action="#{sqlBean.executeReadQuery}" />
 			
 			<p:outputLabel id="msg" value="#{sqlBean.errMsg}" />
 	</h:form>
