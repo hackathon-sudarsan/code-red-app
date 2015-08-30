@@ -1,6 +1,7 @@
 package com.codered.service;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.annotation.PostConstruct;
@@ -9,6 +10,7 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 
+import com.codered.dataobject.Category;
 import com.codered.managebean.UserProfile;
 import com.codered.rest.CodeRedServices;
 
@@ -29,9 +31,11 @@ public class Advertisement extends UserProfile {
 	@PostConstruct
 	public void init() {
 		categoryMap = new HashMap<String, String>();
-		categoryMap.put("USA", "USA");
-		categoryMap.put("Germany", "Germany");
-		categoryMap.put("Brazil", "Brazil");
+		System.out.println("CAlling store procedure" + categoryMap);
+		List<Category> categoryList = new CodeRedServices().getALLCategory();
+		for(Category catObj :categoryList) {
+			categoryMap.put(catObj.getCategoryName(),catObj.getCategoryName());
+		}
 	}
 
 	public Advertisement(String title, String desc) {
