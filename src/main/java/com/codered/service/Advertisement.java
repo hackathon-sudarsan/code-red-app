@@ -5,7 +5,6 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 
-import com.codered.managebean.MySqlBean;
 import com.codered.managebean.UserProfile;
 import com.codered.rest.CodeRedServices;
 
@@ -17,6 +16,7 @@ public class Advertisement extends UserProfile {
 	private String title;
 	private String description;
 	private float price;
+	private int primaryKey;
 
 	public Advertisement() {
 
@@ -66,6 +66,13 @@ public class Advertisement extends UserProfile {
 		this.price = price;
 	}
 
+	
+	public int getPrimaryKey() {
+		return primaryKey;
+	}
+	public void setPrimaryKey(int primaryKey) {
+		this.primaryKey = primaryKey;
+	}
 	public void createAd() {
 		try {
 			ELContext el = FacesContext.getCurrentInstance().getELContext();
@@ -75,8 +82,7 @@ public class Advertisement extends UserProfile {
 			System.out.println("CAlling store procedure");
 			new CodeRedServices().manageAd(adObj);
 			System.out.println("Done with store procedure");
-			FacesContext.getCurrentInstance().addMessage(null,
-					new FacesMessage(FacesMessage.SEVERITY_INFO, "Info", "PrimeFaces Rocks."));
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Info", "PrimeFaces Rocks."));
 			System.out.println("Inside Post Add" + adObj.toString());
 
 		} catch (Exception e) {

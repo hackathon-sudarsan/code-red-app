@@ -20,66 +20,11 @@
 			</h1>
 			<!-- Cart -->
 			<div id="cart">
-			<h:form>
-				<p:commandButton value="Post Advertisement" styleClass="search-submit"
-					onclick="PF('dlg2').show();" />
-					</h:form>
-				<p:dialog header="POST YOUR ADVERTISEMENT HERE !" widgetVar="dlg2"
-					modal="true" height="420" width="500">
-					<h:form>
-						<p:messages id="messages" showDetail="true" autoUpdate="true"
-							closable="true" />
-							
-						<h:panelGrid columns="3" cellpadding="20" cellspacing="20">
-						
-						<h:outputLabel for="category" value="Select Category" />
-						<p:message for="Title" />
-						
-						  <p:selectOneMenu styleClass="field" id="category"
-								value="#{advertisement.categroy}">
-								<f:selectItem itemLabel="Select Category" itemValue="" noSelectionOption="true" />
-								<f:selectItem itemLabel="Electronincs" itemValue="1" />
-							</p:selectOneMenu>
+				<h:form>
+					<p:commandButton value="Post Advertisement"
+						styleClass="search-submit" onclick="PF('dlg2').show();" />
+				</h:form>
 
-							<h:outputLabel for="requestType" value="I Want to : " />
-							<p:message for="requestType" />
-							<p:selectOneRadio id="requestType" value="#{radioView.console}">
-								<f:selectItem itemLabel="Sell" itemValue="1" />
-								<f:selectItem itemLabel="Buy" itemValue="2" />
-							</p:selectOneRadio>
-
-							<h:outputLabel for="Title" value="Title" />
-							<p:inputText id="Title" value="#{advertisement.title}"
-								required="true" label="Title" />
-							<p:message for="Title" />
-
-							<h:outputLabel for="Description" value="Description" />
-							<p:inputText id="Description"
-								value="#{advertisement.description}" required="true"
-								label="Description" />
-							<p:message for="Description" />
-
-							<h:outputLabel for="Price" value="Price" />
-							<p:inputText id="Price" value="#{advertisement.price}"
-								required="true" label="Price" />
-							<p:message for="Price" />
-
-							<h:outputLabel for="Phone" value="Phone" />
-							<p:inputText id="Phone" value="#{advertisement.phone}"
-								required="true" label="Phone" />
-							<p:message for="Phone" />
-
-							<h:outputLabel for="Email" value="Email" />
-							<p:inputText id="Email" value="#{advertisement.email}"
-								required="true" label="Email" />
-							<p:message for="Email" />
-
-							<f:facet name="footer">
-								<p:commandButton action="#{advertisement.createAd}" value="POST" />
-							</f:facet>
-						</h:panelGrid>
-					</h:form>
-				</p:dialog>
 				<div class="cl">&nbsp;</div>
 			</div>
 			<!-- End Cart -->
@@ -98,6 +43,17 @@
 		</div>
 		<!-- End Header -->
 
+		<div id="searchbar">
+			<span> <p:selectOneMenu styleClass="field" id="country"
+					value="">
+					<f:selectItem itemLabel="Select Category" itemValue=""
+						noSelectionOption="true" />
+					<f:selectItem itemLabel="Electronincs" itemValue="1" />
+				</p:selectOneMenu>
+			</span> 
+			<span> <p:inputText /></span>
+			 <span> <p:commandButton value="Search" /></span>
+		</div>
 		<!-- Main -->
 		<div id="main">
 			<div class="cl">&nbsp;</div>
@@ -105,13 +61,75 @@
 			<!-- Content -->
 			<div id="content">
 
+
+				<!-- Products -->
+				<div class="products">
+
+					<p:carousel value="#{carouselBean.advertisementList}"
+						headerText="Responsive" var="advertiseVar"
+						itemStyle="text-align:center;width:235px;height :310px;"
+						responsive="true" autoPlayInterval="5000" circular="true">
+
+						<div class="cl">&nbsp;</div>
+						<ul>
+							<li><a href="#"> <p:graphicImage
+										url="#{resource['default:images/big1.jpg']}">
+									</p:graphicImage>
+
+							</a>
+								<div class="product-info">
+									<h3>LOREM IPSUM</h3>
+									<div class="product-desc">
+										<h4>WOMEN’S</h4>
+										<p>
+											Lorem ipsum dolor sit<br />amet
+										</p>
+										<strong class="price">Rs.5000</strong>
+									</div>
+								</div></li>
+							<li><a href="#"> <p:graphicImage
+										url="#{resource['default:images/big2.jpg']}">
+									</p:graphicImage>
+							</a>
+								<div class="product-info">
+									<h3>LOREM IPSUM</h3>
+									<div class="product-desc">
+										<h4>WOMEN’S</h4>
+										<p>
+											Lorem ipsum dolor sit<br />amet
+										</p>
+										<strong class="price">Rs.5000</strong>
+									</div>
+								</div></li>
+							<li class="last"><a href="#"><p:graphicImage
+										url="#{resource['default:images/big3.jpg']}">
+									</p:graphicImage></a>
+								<div class="product-info">
+									<h3>LOREM IPSUM</h3>
+									<div class="product-desc">
+										<h4>WOMEN’S</h4>
+										<p>
+											Lorem ipsum dolor sit<br />amet
+										</p>
+										<strong class="price">Rs.4000</strong>
+									</div>
+								</div></li>
+						</ul>
+						<div class="cl">&nbsp;</div>
+
+					</p:carousel>
+
+				</div>
+				<!-- End Products -->
+
+
 				<!-- Content Slider -->
 				<div id="slider" class="box">
 					<p:outputPanel id="content">
 						<p:carousel value="#{carouselBean.advertisementList}"
 							headerText="Responsive" var="advertiseVar"
 							itemStyle="text-align:center;width:237px;height :181px;"
-							responsive="true" autoPlayInterval="5000" circular="true">
+							responsive="true">
 							<p:panelGrid columns="2" columnClasses="label,value"
 								layout="grid" styleClass="ui-panelgrid-blank">
 								<f:facet name="header">
@@ -128,61 +146,13 @@
                 In total there are  cars #{fn:length(carouselBean.advertisementList)} cars.
         </f:facet>
 						</p:carousel>
+
+
+
 					</p:outputPanel>
 
 				</div>
 				<!-- End Content Slider -->
-
-				<!-- Products -->
-				<div class="products">
-					<div class="cl">&nbsp;</div>
-					<ul>
-						<li><a href="#"> <p:graphicImage
-									url="#{resource['default:images/big1.jpg']}">
-								</p:graphicImage>
-
-						</a>
-							<div class="product-info">
-								<h3>LOREM IPSUM</h3>
-								<div class="product-desc">
-									<h4>WOMEN’S</h4>
-									<p>
-										Lorem ipsum dolor sit<br />amet
-									</p>
-									<strong class="price">Rs.5000</strong>
-								</div>
-							</div></li>
-						<li><a href="#"> <p:graphicImage
-									url="#{resource['default:images/big2.jpg']}">
-								</p:graphicImage>
-						</a>
-							<div class="product-info">
-								<h3>LOREM IPSUM</h3>
-								<div class="product-desc">
-									<h4>WOMEN’S</h4>
-									<p>
-										Lorem ipsum dolor sit<br />amet
-									</p>
-									<strong class="price">Rs.5000</strong>
-								</div>
-							</div></li>
-						<li class="last"><a href="#"><p:graphicImage
-									url="#{resource['default:images/big3.jpg']}">
-								</p:graphicImage></a>
-							<div class="product-info">
-								<h3>LOREM IPSUM</h3>
-								<div class="product-desc">
-									<h4>WOMEN’S</h4>
-									<p>
-										Lorem ipsum dolor sit<br />amet
-									</p>
-									<strong class="price">Rs.4000</strong>
-								</div>
-							</div></li>
-					</ul>
-					<div class="cl">&nbsp;</div>
-				</div>
-				<!-- End Products -->
 
 			</div>
 			<!-- End Content -->
@@ -190,7 +160,29 @@
 			<!-- Sidebar -->
 			<div id="sidebar">
 
-				<!-- Search -->
+				
+
+				<!-- Categories -->
+				<div class="box categories">
+					<h2>
+						Categories <span></span>
+					</h2>
+					<div class="box-content">
+						<ul>
+							<li class="first"><a href="#">Electronics</a></li>
+							<li><a href="#">Real Estate</a></li>
+							<li><a href="#">AutoMobiles</a></li>
+							<li><a href="#">Fashion</a></li>
+							<li class="last"><a href="#">Others</a></li>
+
+
+						</ul>
+					</div>
+				</div>
+				<!-- End Categories -->
+
+
+<!-- Search -->
 				<div class="box search">
 					<h2>
 						Search by <span></span>
@@ -225,26 +217,6 @@
 					</div>
 				</div>
 				<!-- End Search -->
-
-				<!-- Categories -->
-				<div class="box categories">
-					<h2>
-						Categories <span></span>
-					</h2>
-					<div class="box-content">
-						<ul>
-							<li class="first"><a href="#">Electronics</a></li>
-							<li><a href="#">Real Estate</a></li>
-							<li><a href="#">AutoMobiles</a></li>
-							<li><a href="#">Fashion</a></li>
-							<li class="last"><a href="#">Others</a></li>
-
-
-						</ul>
-					</div>
-				</div>
-				<!-- End Categories -->
-
 			</div>
 			<!-- End Sidebar -->
 
@@ -270,6 +242,64 @@
 	</div>
 	<!-- End Shell -->
 
+
+	<p:dialog header="POST YOUR ADVERTISEMENT HERE !" widgetVar="dlg2"
+		modal="true" height="420" width="500">
+		<h:form>
+			<p:messages id="messages" showDetail="true" autoUpdate="true"
+				closable="true" />
+
+			<h:panelGrid columns="3" cellpadding="20" cellspacing="20">
+
+				<h:outputLabel for="category" value="Select Category" />
+				<p:message for="Title" />
+
+				<p:selectOneMenu styleClass="field" id="category"
+					value="#{advertisement.categroy}">
+					<f:selectItem itemLabel="Select Category" itemValue=""
+						noSelectionOption="true" />
+					<f:selectItem itemLabel="Electronincs" itemValue="1" />
+				</p:selectOneMenu>
+
+				<h:outputLabel for="requestType" value="I Want to : " />
+				<p:message for="requestType" />
+				<p:selectOneRadio id="requestType" value="#{radioView.console}">
+					<f:selectItem itemLabel="Sell" itemValue="1" />
+					<f:selectItem itemLabel="Buy" itemValue="2" />
+				</p:selectOneRadio>
+
+				<h:outputLabel for="Title" value="Title" />
+				<p:inputText id="Title" value="#{advertisement.title}"
+					required="true" label="Title" />
+				<p:message for="Title" />
+
+				<h:outputLabel for="Description" value="Description" />
+				<p:inputText id="Description" value="#{advertisement.description}"
+					required="true" label="Description" />
+				<p:message for="Description" />
+
+				<h:outputLabel for="Price" value="Price" />
+				<p:inputText id="Price" value="#{advertisement.price}"
+					required="true" label="Price" />
+				<p:message for="Price" />
+
+				<h:outputLabel for="Phone" value="Phone" />
+				<p:inputText id="Phone" value="#{advertisement.phone}"
+					required="true" label="Phone" />
+				<p:message for="Phone" />
+
+				<h:outputLabel for="Email" value="Email" />
+				<p:inputText id="Email" value="#{advertisement.email}"
+					required="true" label="Email" />
+				<p:message for="Email" />
+
+				<f:facet name="footer">
+					<p:commandButton action="#{advertisement.createAd}" value="POST" />
+				</f:facet>
+
+			</h:panelGrid>
+		</h:form>
+	</p:dialog>
 
 </body>
 </html>

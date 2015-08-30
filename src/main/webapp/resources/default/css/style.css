@@ -6,6 +6,14 @@ body {
 	line-height:16px;
 	color:#636363;
 }
+#searchbar {
+    border-radius: 25px;
+    background: #7f7f7f none repeat scroll 0 0;
+    padding: 20px;
+    width: auto;
+    height: 40px;
+}
+
 input, textarea, select { font-family: "Trebuchet MS", Arial, sans-serif; font-size:12px; }
 
 .field { background:#ebebeb; border:solid 1px #dedede; padding:2px;}
