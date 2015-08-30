@@ -7,6 +7,7 @@ import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 
+import com.codered.rest.CodeRedServices;
 import com.codered.service.Advertisement;
 import com.codered.service.AdvertisementService;
 
@@ -24,10 +25,12 @@ public class SelectionView implements Serializable {
 	public void init() {
 		adList = adService.createAdmingAds();
 	}
-
-	
 	public void approveAd() {
 		System.out.println("approveAd==============>" + selectedAdList);
+		for(Advertisement adv : selectedAdList) {
+			new CodeRedServices().approveAdmin(adv.getAdminMapOid());
+		}
+		System.out.println("<========  APPROVAL DONE !==============>");
 	}
 	public Advertisement getSelectedAdv() {
 		return selectedAdv;

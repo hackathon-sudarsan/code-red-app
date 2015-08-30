@@ -9,6 +9,8 @@ import java.sql.Types;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -229,6 +231,7 @@ public class CodeRedServices {
 			
 			sb.append(" select ");
 			sb.append(" distinct ");
+			sb.append(" map.admin_map_oid, ");
 			sb.append(" req.request_text, ");
 			sb.append(" cat.category_name, ");
 			sb.append(" map.emp_vz_id, ");
@@ -249,6 +252,7 @@ public class CodeRedServices {
 			ResultSet rs = stmt.executeQuery(sb.toString());
 			while (rs.next()) {
 				ad = new Advertisement();
+				ad.setAdminMapOid(rs.getString("admin_map_oid"));
 				ad.setRequestType(rs.getString("request_text"));
 				ad.setCategroy(rs.getString("category_name"));
 				ad.setVzId(rs.getString("emp_vz_id"));
@@ -325,5 +329,36 @@ public class CodeRedServices {
 		}
 		System.out.println(METHOD_NAME + "advertisementList :" + advertisementList);
 		return advertisementList;
+	}
+	
+	
+	public int approveAdmin(String admin_map_oid) {
+		int rows = 0;
+		try {
+			conn = MySqlDataSource.getConnection();
+			stmt = conn.createStatement();
+			String query = "UPDATE admin_map set request_status = 'A' where admin_map_oid  ='"+admin_map_oid+"'";
+			System.out.println("Query : " + query);
+			rows = stmt.executeUpdate(query);
+		} catch (SQLException se) {
+			se.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (stmt != null)
+					stmt.close();
+			} catch (SQLException se2) {
+			} // nothing we can do
+			try {
+				if (conn != null)
+					conn.close();
+			} catch (SQLException se) {
+				se.printStackTrace();
+			} // end finally try
+		} // end try
+
+		System.out.println("Rows impacted : " + rows);
+		return rows;
 	}
 }

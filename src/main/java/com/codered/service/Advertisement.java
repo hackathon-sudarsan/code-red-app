@@ -24,6 +24,7 @@ public class Advertisement extends UserProfile {
 	private float price;
 	private int primaryKey;
 	private String dateAdded;
+	private String adminMapOid;
 
 	public Advertisement() {
 
@@ -46,6 +47,14 @@ public class Advertisement extends UserProfile {
 
 	public Map<String, String> getCategoryMap() {
 		return categoryMap;
+	}
+
+	public String getAdminMapOid() {
+		return adminMapOid;
+	}
+
+	public void setAdminMapOid(String adminMapOid) {
+		this.adminMapOid = adminMapOid;
 	}
 
 	public void setCategoryMap(Map<String, String> categoryMap) {
