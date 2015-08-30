@@ -135,15 +135,14 @@ public class MySqlBean {
 				new FacesMessage(FacesMessage.SEVERITY_INFO, "Info", "PrimeFaces Rocks."));
 
 	}
-
 	public void callSP(Advertisement ad) {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			conn = MySqlDataSource.getConnection();
 			stmt = conn.createStatement();
-		
+
 			String storeProcCall = "{call insert_proc(?,?,?,?,?,?,?,?,?,?)}";
-			
+
 			System.out.println("Store Procedure statement : " + storeProcCall);
 
 			CallableStatement cStmt = conn.prepareCall(storeProcCall);
@@ -193,7 +192,7 @@ public class MySqlBean {
 				new FacesMessage(FacesMessage.SEVERITY_INFO, "Info", "PrimeFaces Rocks."));
 
 	}
-
+	
 	@Override
 	public String toString() {
 		return "MySqlBean [query=" + query + ", errMsg=" + errMsg + "]";

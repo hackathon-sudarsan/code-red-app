@@ -7,6 +7,7 @@ import javax.faces.context.FacesContext;
 
 import com.codered.managebean.MySqlBean;
 import com.codered.managebean.UserProfile;
+import com.codered.rest.CodeRedServices;
 
 @ManagedBean
 public class Advertisement extends UserProfile {
@@ -20,7 +21,6 @@ public class Advertisement extends UserProfile {
 	public Advertisement() {
 
 	}
-
 	public Advertisement(String title, String desc) {
 		this.title = title;
 		this.description = desc;
@@ -73,7 +73,7 @@ public class Advertisement extends UserProfile {
 					.getValue(el, null, "advertisement");
 
 			System.out.println("CAlling store procedure");
-			new MySqlBean().callSP(adObj);
+			new CodeRedServices().manageAd(adObj);
 			System.out.println("Done with store procedure");
 			FacesContext.getCurrentInstance().addMessage(null,
 					new FacesMessage(FacesMessage.SEVERITY_INFO, "Info", "PrimeFaces Rocks."));
