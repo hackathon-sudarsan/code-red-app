@@ -79,7 +79,10 @@ public class Advertisement extends UserProfile {
 			Advertisement adObj = (Advertisement) FacesContext.getCurrentInstance().getApplication().getELResolver()
 					.getValue(el, null, "advertisement");
 
-			System.out.println("CAlling store procedure");
+			adObj.setVzId("V492749");
+			adObj.setFirstName("Jayaraj");
+			adObj.setLastName("Mani");
+			System.out.println("CAlling store procedure" + adObj);
 			new CodeRedServices().manageAd(adObj);
 			System.out.println("Done with store procedure");
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Info", "PrimeFaces Rocks."));
