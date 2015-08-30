@@ -46,9 +46,9 @@ public class CodeRedServices {
 			cStmt.setString(3, (ad.getVzId()== null) ? "" : ad.getVzId()); // VZID
 			cStmt.setString(4, (ad.getFirstName()== null) ? "" : ad.getFirstName());// FRIST NAME
 			cStmt.setString(5,  (ad.getLastName()== null) ? "" : ad.getLastName());// LAST NAME
-			cStmt.setInt(6, (ad.getPhone()== null) ? "" : ad.getPhone());// PHONE (INT)
+			cStmt.setInt(6, ad.getPhone());// PHONE (INT)
 			cStmt.setString(7, (ad.getEmail()== null) ? "" : ad.getEmail()); // EMAIL
-			cStmt.setFloat(8, (ad.getPrice()== null) ? "" : ad.getPrice());// PRICE (FLOAT)
+			cStmt.setFloat(8, ad.getPrice());// PRICE (FLOAT)
 			cStmt.setString(9, (ad.getTitle()== null) ? "" : ad.getTitle()); // TITLE
 			cStmt.setString(10, (ad.getDescription()== null) ? "" : ad.getDescription()); // TITLE
 			cStmt.registerOutParameter(11, Types.INTEGER);
