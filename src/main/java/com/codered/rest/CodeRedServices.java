@@ -40,23 +40,6 @@ public class CodeRedServices {
 			System.out.println(METHOD_NAME + "Store Procedure statement : " + storeProcCall);
 
 			CallableStatement cStmt = conn.prepareCall(storeProcCall);
-			/*try {
-			cStmt.setInt(1, Integer.getInteger((ad.getRequestType() == null) ? "" : ad.getRequestType())); // request
-			cStmt.setString(2, (ad.getCategroy() == null) ? "" : ad.getCategroy()); // categroy name 'REAL ESTATE'
-			cStmt.setString(3, (ad.getVzId()== null) ? "" : ad.getVzId()); // VZID
-			cStmt.setString(4, (ad.getFirstName()== null) ? "" : ad.getFirstName());// FRIST NAME
-			cStmt.setString(5,  (ad.getLastName()== null) ? "" : ad.getLastName());// LAST NAME
-			cStmt.setInt(6, ad.getPhone());// PHONE (INT)
-			cStmt.setString(7, (ad.getEmail()== null) ? "" : ad.getEmail()); // EMAIL
-			cStmt.setFloat(8, (ad.getPrice()== null) ? "" : ad.getPrice());// PRICE (FLOAT)
-			cStmt.setString(9, (ad.getTitle()== null) ? "" : ad.getTitle()); // TITLE
-			cStmt.setString(10, (ad.getDescription()== null) ? "" : ad.getDescription()); // TITLE
-			cStmt.registerOutParameter(11, Types.INTEGER);
-			} catch(Exception e) {
-		        	System.out.println(METHOD_NAME + "Exception : ");
-			     e.printStackTrace();
-			}
-			*/
 
 			cStmt.setString(1, ad.getRequestType()); // request oid 1 or 2 (buy or sell)
 			cStmt.setString(2, (ad.getCategroy() == null) ? "" : ad.getCategroy()); // categroy name 'REAL ESTATE'

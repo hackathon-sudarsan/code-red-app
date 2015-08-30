@@ -1,5 +1,9 @@
 package com.codered.service;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.annotation.PostConstruct;
 import javax.el.ELContext;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -21,6 +25,15 @@ public class Advertisement extends UserProfile {
 	public Advertisement() {
 
 	}
+	private Map<String, String> categoryMap;
+	@PostConstruct
+	public void init() {
+		categoryMap = new HashMap<String, String>();
+		categoryMap.put("USA", "USA");
+		categoryMap.put("Germany", "Germany");
+		categoryMap.put("Brazil", "Brazil");
+	}
+
 	public Advertisement(String title, String desc) {
 		this.title = title;
 		this.description = desc;
@@ -66,13 +79,14 @@ public class Advertisement extends UserProfile {
 		this.price = price;
 	}
 
-	
 	public int getPrimaryKey() {
 		return primaryKey;
 	}
+
 	public void setPrimaryKey(int primaryKey) {
 		this.primaryKey = primaryKey;
 	}
+
 	public void createAd() {
 		try {
 			ELContext el = FacesContext.getCurrentInstance().getELContext();
@@ -85,19 +99,21 @@ public class Advertisement extends UserProfile {
 			System.out.println("CAlling store procedure" + adObj);
 			new CodeRedServices().manageAd(adObj);
 			System.out.println("Done with store procedure");
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Info", "PrimeFaces Rocks."));
+			FacesContext.getCurrentInstance().addMessage(null,
+					new FacesMessage(FacesMessage.SEVERITY_INFO, "Info", "PrimeFaces Rocks."));
 			System.out.println("Inside Post Add" + adObj.toString());
 
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
+
 	@Override
 	public String toString() {
 		return "Advertisement [categroy=" + categroy + ", requestType=" + requestType + ", title=" + title
-				+ ", description=" + description + ", price=" + price + ", primaryKey=" + primaryKey + "]"+
-				"UserProfile [firstName=" + firstName + ", lastName=" + lastName + ", vzId=" + vzId + ", phone=" + phone
-				+ ", email=" + email + "]";
+				+ ", description=" + description + ", price=" + price + ", primaryKey=" + primaryKey + "]"
+				+ "UserProfile [firstName=" + firstName + ", lastName=" + lastName + ", vzId=" + vzId + ", phone="
+				+ phone + ", email=" + email + "]";
 	}
 
 }
