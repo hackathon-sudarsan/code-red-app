@@ -40,7 +40,7 @@ public class CodeRedServices {
 			System.out.println(METHOD_NAME + "Store Procedure statement : " + storeProcCall);
 
 			CallableStatement cStmt = conn.prepareCall(storeProcCall);
-			
+			try {
 			cStmt.setInt(1, Integer.getInteger((ad.getRequestType() == null) ? "" : ad.getRequestType())); // request
 			cStmt.setString(2, (ad.getCategroy() == null) ? "" : ad.getCategroy()); // categroy name 'REAL ESTATE'
 			cStmt.setString(3, (ad.getVzId()== null) ? "" : ad.getVzId()); // VZID
@@ -51,8 +51,12 @@ public class CodeRedServices {
 			cStmt.setFloat(8, (ad.getPrice()== null) ? "" : ad.getPrice());// PRICE (FLOAT)
 			cStmt.setString(9, (ad.getTitle()== null) ? "" : ad.getTitle()); // TITLE
 			cStmt.setString(10, (ad.getDescription()== null) ? "" : ad.getDescription()); // TITLE
-			
 			cStmt.registerOutParameter(11, Types.INTEGER);
+			} catch(Exception e) {
+		        	System.out.println(METHOD_NAME + "Exception : ");
+			     e.printStackTrace();
+			}
+			
 			boolean hadResults = cStmt.execute();
 			System.out.println(METHOD_NAME + "hadResults : " + hadResults);
 			int outputValue = 0;
