@@ -85,3 +85,16 @@ sELECT category_oid
 FROM category
 WHERE category_name = 'REAL ESTATE';
 
+
+1.postAd
+ 
+2. getRecentAdsForSales
+
+3. getRecentAdsForBuy
+
+4. getCategory
+
+5. getDetailsById
+
+6. searchResult
+
