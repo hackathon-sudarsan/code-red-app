@@ -1,6 +1,5 @@
 package com.codered.service;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -11,7 +10,6 @@ import com.codered.rest.CodeRedServices;
 
 @ManagedBean(name = "adService")
 @ApplicationScoped
-
 public class AdvertisementService {
 
 	private final static String[] name;
@@ -44,7 +42,7 @@ public class AdvertisementService {
 		description[9] = "Ford";
 	}
 
-	public List<Advertisement> createAds(int size) {
+	public List<Advertisement> createAds() {
 		List<Advertisement> list = new CodeRedServices().getRecentAdsByRequestType(1);
 		return list;
 	}
