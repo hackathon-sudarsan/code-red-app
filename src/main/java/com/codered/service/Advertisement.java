@@ -39,6 +39,14 @@ public class Advertisement extends UserProfile {
 		this.description = desc;
 	}
 
+	public Map<String, String> getCategoryMap() {
+		return categoryMap;
+	}
+
+	public void setCategoryMap(Map<String, String> categoryMap) {
+		this.categoryMap = categoryMap;
+	}
+
 	public String getCategroy() {
 		return categroy;
 	}
