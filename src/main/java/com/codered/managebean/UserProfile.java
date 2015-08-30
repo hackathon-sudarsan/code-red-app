@@ -2,11 +2,11 @@ package com.codered.managebean;
 
 public class UserProfile {
 
-	private String firstName;
-	private String lastName;
-	private String vzId;
-	private int phone;
-	private String email;
+	protected String firstName;
+	protected String lastName;
+	protected String vzId;
+	protected int phone;
+	protected String email;
 
 	public String getFirstName() {
 		return firstName;

@@ -95,7 +95,9 @@ public class Advertisement extends UserProfile {
 	@Override
 	public String toString() {
 		return "Advertisement [categroy=" + categroy + ", requestType=" + requestType + ", title=" + title
-				+ ", description=" + description + ", price=" + price + ", primaryKey=" + primaryKey + "]";
+				+ ", description=" + description + ", price=" + price + ", primaryKey=" + primaryKey + "]"+
+				"UserProfile [firstName=" + firstName + ", lastName=" + lastName + ", vzId=" + vzId + ", phone=" + phone
+				+ ", email=" + email + "]";
 	}
 
 }
