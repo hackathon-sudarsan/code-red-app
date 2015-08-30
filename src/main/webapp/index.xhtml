@@ -42,7 +42,7 @@
 			<!-- End Navigation -->
 		</div>
 		<!-- End Header -->
-
+		<h:form>
 		<div id="searchbar">
 			<span> <p:selectOneMenu styleClass="field" id="country"
 					value="">
@@ -54,6 +54,7 @@
 			<span> <p:inputText /></span>
 			 <span> <p:commandButton value="Search" /></span>
 		</div>
+		</h:form>
 		<!-- Main -->
 		<div id="main">
 			<div class="cl">&nbsp;</div>
@@ -263,7 +264,7 @@
 
 				<h:outputLabel for="requestType" value="I Want to : " />
 				<p:message for="requestType" />
-				<p:selectOneRadio id="requestType" value="#{radioView.console}">
+				<p:selectOneRadio id="requestType" value="#{advertisement.requestType}">
 					<f:selectItem itemLabel="Sell" itemValue="1" />
 					<f:selectItem itemLabel="Buy" itemValue="2" />
 				</p:selectOneRadio>
