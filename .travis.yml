@@ -1,5 +1,5 @@
  language: java
- install: mvn install site
+ install: mvn install surefire-report:report -DshowSuccess=true
  sudo: required
  sudo: true
  
