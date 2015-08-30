@@ -16,24 +16,48 @@
 	<h:form>
 		<p:dataTable id="checkboxDT" var="adv"
 			value="#{dtSelectionView.adList}"
-			selection="#{dtSelectionView.selectedAdv}" rowKey="#{adv.primaryKey}"
+			selection="#{dtSelectionView.selectedAdList}" rowKey="#{adv.primaryKey}"
 			style="margin-bottom:0">
 			<f:facet name="header">
             Administration
         </f:facet>
 			<p:column selectionMode="multiple"
 				style="width:16px;text-align:center" />
-			<p:column headerText="Id">
+			<p:column headerText="Title">
 				<h:outputText value="#{adv.title}" />
 			</p:column>
-			<p:column headerText="Description">
-				<h:outputText value="#{advertisement.description}" />
+			<p:column headerText="Request Type">
+				<h:outputText value="#{adv.request_text}" />
 			</p:column>
+			<p:column headerText="Description">
+				<h:outputText value="#{adv.description}" />
+			</p:column>
+
+			<p:column headerText="First Name">
+				<h:outputText value="#{adv.firstName}" />
+			</p:column>
+
+			<p:column headerText="Last Name">
+				<h:outputText value="#{adv.lastName}" />
+			</p:column>
+
+			<p:column headerText="Employee Id">
+				<h:outputText value="#{adv.vzId}" />
+			</p:column>
+
+			<p:column headerText="phone">
+				<h:outputText value="#{adv.phone}" />
+			</p:column>
+
+			<p:column headerText="email">
+				<h:outputText value="#{adv.email}" />
+			</p:column>
+			<p:column headerText="Last Name">
+				<h:outputText value="#{adv.lastName}" />
+			</p:column>
+
 			<f:facet name="footer">
-				<p:commandButton icon="ui-icon-search" value="Approve !" />
-				<!-- <p:commandButton process="checkboxDT" update=":form:multiCarDetail"
-					icon="ui-icon-search" value="View"
-					oncomplete="PF('multiCarDialog').show()" /> -->
+				<p:commandButton icon="ui-icon-search" value="Approve !" action="#{dtSelectionView.approveAd}"/>
 			</f:facet>
 		</p:dataTable>
 	</h:form>

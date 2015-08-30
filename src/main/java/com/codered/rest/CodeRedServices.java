@@ -249,6 +249,7 @@ public class CodeRedServices {
 			ResultSet rs = stmt.executeQuery(sb.toString());
 			while (rs.next()) {
 				ad = new Advertisement();
+				ad.setRequestType(rs.getString("request_text"));
 				ad.setCategroy(rs.getString("category_name"));
 				ad.setVzId(rs.getString("emp_vz_id"));
 				ad.setFirstName(rs.getString("emp_first_name"));
@@ -258,6 +259,7 @@ public class CodeRedServices {
 				ad.setPrice(rs.getFloat("price"));
 				ad.setTitle(rs.getString("product_title"));
 				ad.setDescription(rs.getString("product_comment"));
+				ad.setDateAdded(rs.getString("data_added"));
 				advertisementList.add(ad);
 			}
 		} catch (SQLException se) {

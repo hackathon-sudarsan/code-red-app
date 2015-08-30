@@ -23,6 +23,7 @@ public class Advertisement extends UserProfile {
 	private String description;
 	private float price;
 	private int primaryKey;
+	private String dateAdded;
 
 	public Advertisement() {
 
@@ -65,6 +66,14 @@ public class Advertisement extends UserProfile {
 
 	public void setRequestType(String requestType) {
 		this.requestType = requestType;
+	}
+
+	public String getDateAdded() {
+		return dateAdded;
+	}
+
+	public void setDateAdded(String dateAdded) {
+		this.dateAdded = dateAdded;
 	}
 
 	public String getTitle() {
@@ -119,7 +128,8 @@ public class Advertisement extends UserProfile {
 			e.printStackTrace();
 		}
 	}
-
+	
+	
 	@Override
 	public String toString() {
 		return "Advertisement [categroy=" + categroy + ", requestType=" + requestType + ", title=" + title
