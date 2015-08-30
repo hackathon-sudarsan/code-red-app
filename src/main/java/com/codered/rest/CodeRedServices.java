@@ -141,7 +141,7 @@ public class CodeRedServices {
 			sb.append(" where  ");
 			sb.append(" map.category_oid=cat.category_oid and  ");
 			sb.append(" map.request_status = 'A'  ");
-			sb.append(" map.request_type_oid=").append(requestType);
+			sb.append(" and map.request_type_oid=").append(requestType);
 			sb.append(" and DATE(map.data_added) > (DATE(NOW())-10) ");
 
 			System.out.println(METHOD_NAME + "QUERY :" + sb.toString());
@@ -194,7 +194,7 @@ public class CodeRedServices {
 			sb.append(" where  ");
 			sb.append(" map.category_oid=cat.category_oid and  ");
 			sb.append(" map.request_status = 'A'  ");
-			sb.append(" map.admin_map_oid=").append(id);
+			sb.append(" and map.admin_map_oid=").append(id);
 
 			System.out.println(METHOD_NAME + "QUERY :" + sb.toString());
 			ResultSet rs = stmt.executeQuery(sb.toString());
