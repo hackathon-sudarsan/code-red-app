@@ -19,7 +19,7 @@ public class SelectionView implements Serializable {
      
     @PostConstruct
     public void init() {
-    	adList = adService.createAds();
+    	adList = adService.createAdsLocal(10);
     }
 	
 	public Advertisement getSelectedAdv() {
