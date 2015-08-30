@@ -6,30 +6,48 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 
 import com.codered.managebean.MySqlBean;
+import com.codered.managebean.UserProfile;
 
 @ManagedBean
-public class Advertisement {
-	private String name;
-	private String phone;
-	private String emailId;
-	private String price;
+public class Advertisement extends UserProfile {
+
+	private String categroy;
+	private String requestType;
+	private String title;
 	private String description;
+	private float price;
 
 	public Advertisement() {
 
 	}
 
-	public Advertisement(String name, String description) {
-		this.name = name;
-		this.description = description;
+	public Advertisement(String title, String desc) {
+		this.title = title;
+		this.description = desc;
 	}
 
-	public String getName() {
-		return name;
+	public String getCategroy() {
+		return categroy;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setCategroy(String categroy) {
+		this.categroy = categroy;
+	}
+
+	public String getRequestType() {
+		return requestType;
+	}
+
+	public void setRequestType(String requestType) {
+		this.requestType = requestType;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
 	}
 
 	public String getDescription() {
@@ -40,27 +58,11 @@ public class Advertisement {
 		this.description = description;
 	}
 
-	public String getPhone() {
-		return phone;
-	}
-
-	public void setPhone(String phone) {
-		this.phone = phone;
-	}
-
-	public String getEmailId() {
-		return emailId;
-	}
-
-	public void setEmailId(String emailId) {
-		this.emailId = emailId;
-	}
-
-	public String getPrice() {
+	public float getPrice() {
 		return price;
 	}
 
-	public void setPrice(String price) {
+	public void setPrice(float price) {
 		this.price = price;
 	}
 
@@ -69,22 +71,17 @@ public class Advertisement {
 			ELContext el = FacesContext.getCurrentInstance().getELContext();
 			Advertisement adObj = (Advertisement) FacesContext.getCurrentInstance().getApplication().getELResolver()
 					.getValue(el, null, "advertisement");
-			
-			System.out.println("CAlling store procedure"); 
+
+			System.out.println("CAlling store procedure");
 			new MySqlBean().callSP(adObj);
 			System.out.println("Done with store procedure");
-			 FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Info", "PrimeFaces Rocks."));
+			FacesContext.getCurrentInstance().addMessage(null,
+					new FacesMessage(FacesMessage.SEVERITY_INFO, "Info", "PrimeFaces Rocks."));
 			System.out.println("Inside Post Add" + adObj.toString());
 
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-	}
-
-	@Override
-	public String toString() {
-		return "Advertisement [name=" + name + ", phone=" + phone + ", emailId=" + emailId + ", price=" + price
-				+ ", description=" + description + "]";
 	}
 
 }
