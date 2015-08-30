@@ -36,17 +36,18 @@ public class CodeRedServices {
 			Class.forName("com.mysql.jdbc.Driver");
 			conn = MySqlDataSource.getConnection();
 			stmt = conn.createStatement();
-			String storeProcCall = "{call insert_proc(?,?,?,?,?,?,?,?,?,?)}";
+			String storeProcCall = "{call insert_proc(?,?,?,?,?,?,?,?,?,?, ?)}";
 			System.out.println(METHOD_NAME + "Store Procedure statement : " + storeProcCall);
 
 			CallableStatement cStmt = conn.prepareCall(storeProcCall);
-			cStmt.setInt(1, Integer.getInteger(ad.getRequestType())); // request
+			
+			cStmt.setInt(1, Integer.getInteger((ad.getRequestType() == null) ? "" : ad.getRequestType())); // request
 																		// oid
 																		// 1or
 																		// 2(buy
 																		// orsell)
-			cStmt.setString(2, ad.getCategroy()); // categroy name 'REAL ESTATE'
-			cStmt.setString(3, ad.getVzId()); // VZID
+			cStmt.setString(2, (ad.getCategroy() == null) ? "" : ad.getCategroy()); // categroy name 'REAL ESTATE'
+			cStmt.setString(3, (ad.getVzId()== null) ? "" : ad.getVzId()); // VZID
 			cStmt.setString(4, ad.getFirstName());// FRIST NAME
 			cStmt.setString(5, ad.getLastName());// LAST NAME
 			cStmt.setInt(6, ad.getPhone());// PHONE (INT)

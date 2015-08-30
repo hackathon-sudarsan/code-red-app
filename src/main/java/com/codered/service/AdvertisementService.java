@@ -7,6 +7,8 @@ import java.util.List;
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 
+import com.codered.rest.CodeRedServices;
+
 @ManagedBean(name = "adService")
 @ApplicationScoped
 
@@ -43,10 +45,7 @@ public class AdvertisementService {
 	}
 
 	public List<Advertisement> createAds(int size) {
-		List<Advertisement> list = new ArrayList<Advertisement>();
-		for (int i = 0; i < size; i++) {
-			list.add(new Advertisement(getRandomName(), getRandomDesc()));
-		}
+		List<Advertisement> list = new CodeRedServices().getRecentAdsByRequestType(1);
 		return list;
 	}
 

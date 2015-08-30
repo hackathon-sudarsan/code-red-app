@@ -48,4 +48,10 @@ public class UserProfile {
 		this.email = email;
 	}
 
+	@Override
+	public String toString() {
+		return "UserProfile [firstName=" + firstName + ", lastName=" + lastName + ", vzId=" + vzId + ", phone=" + phone
+				+ ", email=" + email + "]";
+	}
+
 }

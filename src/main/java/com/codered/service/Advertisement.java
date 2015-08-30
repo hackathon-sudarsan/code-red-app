@@ -92,5 +92,10 @@ public class Advertisement extends UserProfile {
 			e.printStackTrace();
 		}
 	}
+	@Override
+	public String toString() {
+		return "Advertisement [categroy=" + categroy + ", requestType=" + requestType + ", title=" + title
+				+ ", description=" + description + ", price=" + price + ", primaryKey=" + primaryKey + "]";
+	}
 
 }
