@@ -62,10 +62,10 @@ public class CodeRedServices {
 			String lastName = "lastName";
 
 			cStmt.setInt(1, 1); // request oid 1 or 2 (buy or sell)
-			cStmt.setString(2, "abcdefg"); // categroy name 'REAL ESTATE'
-			cStmt.setString(3, "abcdefg"); // VZID
-			cStmt.setString(4, firstName);// FRIST NAME
-			cStmt.setString(5, lastName);// LAST NAME
+			cStmt.setString(2, (ad.getCategroy() == null) ? "" : ad.getCategroy()); // categroy name 'REAL ESTATE'
+			cStmt.setString(3, (ad.getVzId()== null) ? "" : ad.getVzId()); // VZID
+			cStmt.setString(4, (ad.getFirstName()== null) ? "" : ad.getFirstName());// FRIST NAME
+			cStmt.setString(5, (ad.getLastName()== null) ? "" : ad.getLastName());// LAST NAME
 			cStmt.setInt(6, 1234455);// PHONE (INT)
 			cStmt.setString(7, "email"); // EMAIL
 			cStmt.setFloat(8, 1222F);// PRICE (FLOAT)
