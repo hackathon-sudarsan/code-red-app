@@ -1,5 +1,5 @@
  language: java
- install: mvn install -DskipTest=true
+ install: mvn install -DskipTest=false
  sudo: required
  sudo: true
  
