@@ -43,17 +43,16 @@
 		</div>
 		<!-- End Header -->
 		<h:form>
-		<div id="searchbar">
-			<span> <p:selectOneMenu styleClass="field" id="country"
-					value="#{advertisement.categroy}">
-					<f:selectItem itemLabel="Select Category" itemValue=""
-									noSelectionOption="true" />
-               					 <f:selectItems value="#{advertisement.categoryMap}" />
-				</p:selectOneMenu>
-			</span> 
-			<span> <p:inputText /></span>
-			 <span> <p:commandButton value="Search" /></span>
-		</div>
+			<div id="searchbar">
+				<span> <p:selectOneMenu styleClass="field" id="country"
+						value="#{advertisement.categroy}">
+						<f:selectItem itemLabel="Select Category" itemValue=""
+							noSelectionOption="true" />
+						<f:selectItems value="#{advertisement.categoryMap}" />
+					</p:selectOneMenu>
+				</span> <span> <p:inputText /></span> <span> <p:commandButton
+						value="Search" /></span>
+			</div>
 		</h:form>
 		<!-- Main -->
 		<div id="main">
@@ -158,7 +157,7 @@
 			<!-- Sidebar -->
 			<div id="sidebar">
 
-				
+
 
 				<!-- Categories -->
 				<div class="box categories">
@@ -167,20 +166,18 @@
 					</h2>
 					<div class="box-content">
 						<ul>
-							<li class="first"><a href="#">Electronics</a></li>
-							<li><a href="#">Real Estate</a></li>
-							<li><a href="#">AutoMobiles</a></li>
-							<li><a href="#">Fashion</a></li>
-							<li class="last"><a href="#">Others</a></li>
-
-
+							<p:dataTable value="#{advertisement.categoryMap}" var="category">
+								<li>
+									<h:outputText value="#{category.value}" />
+								</li>
+							</p:dataTable>
 						</ul>
 					</div>
 				</div>
 				<!-- End Categories -->
 
 
-<!-- Search -->
+				<!-- Search -->
 				<div class="box search">
 					<h2>
 						Search by <span></span>
@@ -198,7 +195,7 @@
 								value="#{advertisement.categroy}">
 								<f:selectItem itemLabel="Select Category" itemValue=""
 									noSelectionOption="true" />
-               					 <f:selectItems value="#{advertisement.categoryMap}" />
+								<f:selectItems value="#{advertisement.categoryMap}" />
 							</p:selectOneMenu>
 
 							<p:commandButton update="@form" styleClass="search-submit"
@@ -251,13 +248,14 @@
 				<p:selectOneMenu styleClass="field" id="category"
 					value="#{advertisement.categroy}">
 					<f:selectItem itemLabel="Select Category" itemValue=""
-									noSelectionOption="true" />
-               					 <f:selectItems value="#{advertisement.categoryMap}" />
+						noSelectionOption="true" />
+					<f:selectItems value="#{advertisement.categoryMap}" />
 				</p:selectOneMenu>
 
 				<h:outputLabel for="requestType" value="I Want to : " />
 				<p:message for="requestType" />
-				<p:selectOneRadio id="requestType" value="#{advertisement.requestType}">
+				<p:selectOneRadio id="requestType"
+					value="#{advertisement.requestType}">
 					<f:selectItem itemLabel="Sell" itemValue="1" />
 					<f:selectItem itemLabel="Buy" itemValue="2" />
 				</p:selectOneRadio>
