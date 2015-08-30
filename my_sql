@@ -138,3 +138,41 @@ where
 map.category_oid=cat.category_oid and 
 map.request_type_oid=2 and DATE(map.data_added) > (DATE(NOW())-10);
 
+search:
+select 
+distinct
+map.request_type_oid,
+cat.category_name,
+map.emp_vz_id,
+map.emp_first_name,
+map.emp_last_name,
+map.emp_phone,
+map.emp_email_id,
+map.price,
+map.data_added,
+map.product_title,
+map.product_comment
+from admin_map map,category cat
+where 
+map.category_oid=cat.category_oid and 
+map.category_oid in (select category_oid from category where category_name='ELECTRONICS') and
+(product_title like '%Moto%' or product_comment like '%Moto%');
+
+Admin:
+select 
+distinct
+req.request_text,
+cat.category_name,
+map.emp_vz_id,
+map.emp_first_name,
+map.emp_last_name,
+map.emp_phone,
+map.emp_email_id,
+map.price,
+map.data_added,
+map.product_title,
+map.product_comment
+from admin_map map,category cat,request_type req
+where 
+map.category_oid=cat.category_oid and req.request_type_oid=map.request_type_oid
+and request_status='P';
