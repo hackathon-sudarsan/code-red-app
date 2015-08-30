@@ -45,10 +45,10 @@
 		<h:form>
 		<div id="searchbar">
 			<span> <p:selectOneMenu styleClass="field" id="country"
-					value="">
+					value="#{advertisement.categroy}">
 					<f:selectItem itemLabel="Select Category" itemValue=""
-						noSelectionOption="true" />
-					<f:selectItem itemLabel="Electronincs" itemValue="1" />
+									noSelectionOption="true" />
+               					 <f:selectItems value="#{advertisement.categoryMap}" />
 				</p:selectOneMenu>
 			</span> 
 			<span> <p:inputText /></span>
@@ -251,8 +251,8 @@
 				<p:selectOneMenu styleClass="field" id="category"
 					value="#{advertisement.categroy}">
 					<f:selectItem itemLabel="Select Category" itemValue=""
-						noSelectionOption="true" />
-					<f:selectItem itemLabel="Electronincs" itemValue="1" />
+									noSelectionOption="true" />
+               					 <f:selectItems value="#{advertisement.categoryMap}" />
 				</p:selectOneMenu>
 
 				<h:outputLabel for="requestType" value="I Want to : " />

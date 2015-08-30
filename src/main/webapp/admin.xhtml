@@ -19,15 +19,18 @@
 			selection="#{dtSelectionView.selectedAdv}" rowKey="#{adv.primaryKey}"
 			style="margin-bottom:0">
 			<f:facet name="header">
-            Checkbox
+            Administration
         </f:facet>
 			<p:column selectionMode="multiple"
 				style="width:16px;text-align:center" />
 			<p:column headerText="Id">
 				<h:outputText value="#{adv.title}" />
 			</p:column>
-			
+			<p:column headerText="Description">
+				<h:outputText value="#{advertisement.description}" />
+			</p:column>
 			<f:facet name="footer">
+				<p:commandButton icon="ui-icon-search" value="Approve !" />
 				<!-- <p:commandButton process="checkboxDT" update=":form:multiCarDetail"
 					icon="ui-icon-search" value="View"
 					oncomplete="PF('multiCarDialog').show()" /> -->

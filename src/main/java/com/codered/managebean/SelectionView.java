@@ -14,12 +14,12 @@ import com.codered.service.AdvertisementService;
 public class SelectionView implements Serializable {
 	private Advertisement selectedAdv;
 	private List<Advertisement> adList;
-    @ManagedProperty("#{carService}")
+    @ManagedProperty("#{adService}")
     private AdvertisementService adService;
      
     @PostConstruct
     public void init() {
-    	adList = adService.createAdsLocal(10);
+    	adList = adService.createAdmingAds();
     }
 	
 	public Advertisement getSelectedAdv() {

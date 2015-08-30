@@ -48,11 +48,8 @@ public class AdvertisementService {
 		List<Advertisement> list = new CodeRedServices().getRecentAdsByRequestType(1);
 		return list;
 	}
-	public List<Advertisement> createAdsLocal(int size) {
-		List<Advertisement> list = new ArrayList<Advertisement>();
-		for(int i = 0 ; i < size ; i++) {
-			list.add(new Advertisement());
-		}
+	public List<Advertisement> createAdmingAds() {
+		List<Advertisement> list = new CodeRedServices().getAdListForAdmin();
 		return list;
 	}
 	private String getRandomName() {

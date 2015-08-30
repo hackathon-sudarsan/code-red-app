@@ -216,5 +216,112 @@ public class CodeRedServices {
 		System.out.println(METHOD_NAME + "ad :" + ad);
 		return ad;
 	}
+	
+	
+	public List<Advertisement> getAdListForAdmin() {
+		final String METHOD_NAME = "CoreRedServices : getAdListForAdmin";
+		List<Advertisement> advertisementList = new ArrayList<Advertisement>();
+		Advertisement ad = null;
+		try {
+			conn = MySqlDataSource.getConnection();
+			stmt = conn.createStatement();
+			StringBuilder sb = new StringBuilder();
+			
+			sb.append(" select ");
+			sb.append(" distinct ");
+			sb.append(" req.request_text, ");
+			sb.append(" cat.category_name, ");
+			sb.append(" map.emp_vz_id, ");
+			sb.append(" map.emp_first_name, ");
+			sb.append(" map.emp_last_name, ");
+			sb.append(" map.emp_phone, ");
+			sb.append(" map.emp_email_id, ");
+			sb.append(" map.price, ");
+			sb.append(" map.data_added, ");
+			sb.append(" map.product_title, ");
+			sb.append(" map.product_comment ");
+			sb.append(" from admin_map map,category cat,request_type req ");
+			sb.append(" where  ");
+			sb.append(" map.category_oid=cat.category_oid and req.request_type_oid=map.request_type_oid ");
+			sb.append(" and request_status='P' ");
 
+			System.out.println(METHOD_NAME + "QUERY :" + sb.toString());
+			ResultSet rs = stmt.executeQuery(sb.toString());
+			while (rs.next()) {
+				ad = new Advertisement();
+				ad.setCategroy(rs.getString("category_name"));
+				ad.setVzId(rs.getString("emp_vz_id"));
+				ad.setFirstName(rs.getString("emp_first_name"));
+				ad.setLastName(rs.getString("emp_last_name"));
+				ad.setPhone(rs.getInt("emp_phone"));
+				ad.setEmail(rs.getString("emp_email_id"));
+				ad.setPrice(rs.getFloat("price"));
+				ad.setTitle(rs.getString("product_title"));
+				ad.setDescription(rs.getString("product_comment"));
+				advertisementList.add(ad);
+			}
+		} catch (SQLException se) {
+			se.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			MySqlDataSource.closeConnection(stmt, conn);
+		}
+		System.out.println(METHOD_NAME + "advertisementList :" + advertisementList);
+		return advertisementList;
+	}
+
+	public List<Advertisement> search(String titleSearchStr,String commentSearchStr, String category) {
+		final String METHOD_NAME = "CoreRedServices : getAdListForAdmin";
+		List<Advertisement> advertisementList = new ArrayList<Advertisement>();
+		Advertisement ad = null;
+		try {
+			conn = MySqlDataSource.getConnection();
+			stmt = conn.createStatement();
+			StringBuilder sb = new StringBuilder();
+			sb.append(" select ");
+			sb.append(" distinct ");
+			sb.append(" map.request_type_oid, ");
+			sb.append(" cat.category_name, ");
+			sb.append(" map.emp_vz_id, ");
+			sb.append(" map.emp_first_name, ");
+			sb.append(" map.emp_last_name, ");
+			sb.append(" map.emp_phone, ");
+			sb.append(" map.emp_email_id, ");
+			sb.append(" map.price, ");
+			sb.append(" map.data_added, ");
+			sb.append(" map.product_title, ");
+			sb.append(" map.product_comment ");
+			sb.append(" from admin_map map,category cat ");
+			sb.append(" where  ");
+			sb.append(" map.category_oid=cat.category_oid and  ");
+			sb.append(" map.category_oid in (select category_oid from category where category_name='").append(category).append("'");
+			sb.append(" and (product_title like '%").append(titleSearchStr).append("%'");
+			sb.append(" or product_comment like '%").append(commentSearchStr).append("%'");
+
+			System.out.println(METHOD_NAME + "QUERY :" + sb.toString());
+			ResultSet rs = stmt.executeQuery(sb.toString());
+			while (rs.next()) {
+				ad = new Advertisement();
+				ad.setCategroy(rs.getString("category_name"));
+				ad.setVzId(rs.getString("emp_vz_id"));
+				ad.setFirstName(rs.getString("emp_first_name"));
+				ad.setLastName(rs.getString("emp_last_name"));
+				ad.setPhone(rs.getInt("emp_phone"));
+				ad.setEmail(rs.getString("emp_email_id"));
+				ad.setPrice(rs.getFloat("price"));
+				ad.setTitle(rs.getString("product_title"));
+				ad.setDescription(rs.getString("product_comment"));
+				advertisementList.add(ad);
+			}
+		} catch (SQLException se) {
+			se.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			MySqlDataSource.closeConnection(stmt, conn);
+		}
+		System.out.println(METHOD_NAME + "advertisementList :" + advertisementList);
+		return advertisementList;
+	}
 }
