@@ -36,32 +36,28 @@ public class CodeRedServices {
 			Class.forName("com.mysql.jdbc.Driver");
 			conn = MySqlDataSource.getConnection();
 			stmt = conn.createStatement();
-			String storeProcCall = "{call insert_proc(?,?,?,?,?,?,?,?,?,?, ?)}";
+			String storeProcCall = "{call insert_proc(?,?,?,?,?,?,?,?,?,?,?)}";
 			System.out.println(METHOD_NAME + "Store Procedure statement : " + storeProcCall);
 
 			CallableStatement cStmt = conn.prepareCall(storeProcCall);
 			
 			cStmt.setInt(1, Integer.getInteger((ad.getRequestType() == null) ? "" : ad.getRequestType())); // request
-																		// oid
-																		// 1or
-																		// 2(buy
-																		// orsell)
 			cStmt.setString(2, (ad.getCategroy() == null) ? "" : ad.getCategroy()); // categroy name 'REAL ESTATE'
 			cStmt.setString(3, (ad.getVzId()== null) ? "" : ad.getVzId()); // VZID
-			cStmt.setString(4, ad.getFirstName());// FRIST NAME
-			cStmt.setString(5, ad.getLastName());// LAST NAME
-			cStmt.setInt(6, ad.getPhone());// PHONE (INT)
-			cStmt.setString(7, ad.getEmail()); // EMAIL
-			cStmt.setFloat(8, ad.getPrice());// PRICE (FLOAT)
-			cStmt.setString(9, ad.getTitle()); // TITLE
-			cStmt.setString(10, ad.getDescription()); // TITLE
+			cStmt.setString(4, (ad.getFirstName()== null) ? "" : ad.getFirstName());// FRIST NAME
+			cStmt.setString(5,  (ad.getLastName()== null) ? "" : ad.getLastName());// LAST NAME
+			cStmt.setInt(6, (ad.getPhone()== null) ? "" : ad.getPhone());// PHONE (INT)
+			cStmt.setString(7, (ad.getEmail()== null) ? "" : ad.getEmail()); // EMAIL
+			cStmt.setFloat(8, (ad.getPrice()== null) ? "" : ad.getPrice());// PRICE (FLOAT)
+			cStmt.setString(9, (ad.getTitle()== null) ? "" : ad.getTitle()); // TITLE
+			cStmt.setString(10, (ad.getDescription()== null) ? "" : ad.getDescription()); // TITLE
 			
 			cStmt.registerOutParameter(11, Types.INTEGER);
 			boolean hadResults = cStmt.execute();
 			System.out.println(METHOD_NAME + "hadResults : " + hadResults);
 			int outputValue = 0;
 		    while (hadResults) {
-		         outputValue = cStmt.getInt(2); 
+		         outputValue = cStmt.getInt(11); 
 		    }
 		    System.out.println(METHOD_NAME + "outputValue : " + outputValue);
 			
