@@ -94,7 +94,47 @@ WHERE category_name = 'REAL ESTATE';
 
 4. getCategory
 
+
 5. getDetailsById
 
 6. searchResult
+
+
+sell:
+select 
+distinct
+'SELL' as request_type,
+cat.category_name,
+map.emp_vz_id,
+map.emp_first_name,
+map.emp_last_name,
+map.emp_phone,
+map.emp_email_id,
+map.price,
+map.data_added,
+map.product_title,
+map.product_comment
+from admin_map map,category cat
+where 
+map.category_oid=cat.category_oid and 
+map.request_type_oid=1 and DATE(map.data_added) > (DATE(NOW())-10);
+
+BUY:
+select 
+distinct
+'BUY' as request_type,
+cat.category_name,
+map.emp_vz_id,
+map.emp_first_name,
+map.emp_last_name,
+map.emp_phone,
+map.emp_email_id,
+map.price,
+map.data_added,
+map.product_title,
+map.product_comment
+from admin_map map,category cat
+where 
+map.category_oid=cat.category_oid and 
+map.request_type_oid=2 and DATE(map.data_added) > (DATE(NOW())-10);
 
