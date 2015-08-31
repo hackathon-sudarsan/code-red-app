@@ -75,7 +75,7 @@
             <h:outputText value="#{car.title}" />
         </p:column>
         <p:column style="width:32px;text-align: center">
-             <p:commandButton update=":form:multiCarDetail" oncomplete="PF('multiCarDialog').show()" icon="ui-icon-search" title="View">
+             <p:commandButton update="multiCarDetail" oncomplete="PF('multiCarDialog').show()" icon="ui-icon-search" title="View">
                 <f:setPropertyActionListener value="#{car}" target="#{dtSelectionView.selectedAdv}" />
             </p:commandButton>
         </p:column>
@@ -86,10 +86,12 @@
 			modal="true" showEffect="fade" hideEffect="fade" resizable="false"
 			width="200">
 			<p:outputPanel id="multiCarDetail" style="text-align:center;">
-				<ui:repeat value="#{dtSelectionView.selectedAdList}" var="ad">
+			<h:outputText value="title" />
+                <h:outputText value="#{dtSelectionView.selectedAdv.title}" />
+				<!-- <ui:repeat value="#{dtSelectionView.selectedAdList}" var="ad">
 					<h:outputText value="#{ad.title} - #{ad.description}"
 						style="display:block" />
-				</ui:repeat>
+				</ui:repeat> -->
 			</p:outputPanel>
 		</p:dialog>
 	</h:form>
