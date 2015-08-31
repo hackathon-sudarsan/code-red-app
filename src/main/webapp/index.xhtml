@@ -42,18 +42,7 @@
 			<!-- End Navigation -->
 		</div>
 		<!-- End Header -->
-		<h:form>
-			<div id="searchbar">
-				<span> <p:selectOneMenu styleClass="field" id="country"
-						value="#{advertisement.categroy}">
-						<f:selectItem itemLabel="Select Category" itemValue=""
-							noSelectionOption="true" />
-						<f:selectItems value="#{advertisement.categoryMap}" />
-					</p:selectOneMenu>
-				</span> <span> <p:inputText /></span> <span> <p:commandButton
-						value="Search" /></span>
-			</div>
-		</h:form>
+		
 		<!-- Main -->
 		<div id="main">
 			<div class="cl">&nbsp;</div>
@@ -126,8 +115,6 @@
 
 			<!-- Sidebar -->
 			<div id="sidebar">
-
-
 				<!-- Search -->
 				<div class="box search">
 					<h2>
@@ -135,26 +122,30 @@
 					</h2>
 					<div class="box-content">
 						<h:form>
+					<label>Keyword</label>
+					<p:inputText id="txt1" value="#{searchView.searchStr}" required="true" label="Text 1">
+						<f:validateLength minimum="2" />
+					</p:inputText>
+			
+					<label>Category</label>
+					<p:selectOneMenu styleClass="field" id="category"
+						value="#{searchView.category}">
+						<f:selectItem itemLabel="Select Category" itemValue="" noSelectionOption="true" />
+						<f:selectItems value="#{advertisement.categoryMap}" />
+					</p:selectOneMenu>
 
-							<label>Keyword</label>
-							<p:inputText id="txt1" value="#{searchView.text1}"
-								required="true" label="Text 1">
-								<f:validateLength minimum="2" />
-							</p:inputText>
-							<label>Category</label>
-							<p:selectOneMenu styleClass="field" id="category"
-								value="#{advertisement.categroy}">
-								<f:selectItem itemLabel="Select Category" itemValue=""
-									noSelectionOption="true" />
-								<f:selectItems value="#{advertisement.categoryMap}" />
-							</p:selectOneMenu>
-
-							<p:commandButton update="@form" styleClass="search-submit"
-								value="Search" />
-							<p>
+	 		<p:commandButton update=":searchform:searchResultBlock" styleClass="search-submit" 
+	 			oncomplete="PF('searchResultDialog').show()" icon="ui-icon-search" value="Search" action="#{searchView.getSearchResults}" >
+	 			
+	 			<p>
 								<a href="#" class="bul">Advanced search</a><br />
 							</p>
-
+            </p:commandButton>
+	
+					<!-- <p:commandButton update="@form" styleClass="search-submit"
+								value="Search" />
+							
+ -->
 						</h:form>
 					</div>
 				</div>
@@ -279,6 +270,32 @@
 			</p:outputPanel>
 		</p:dialog>
 	</h:form>
+	
+	<h:form id="searchform">
+		<p:dialog header="Search Results" widgetVar="searchProdWidget"
+			modal="true" showEffect="fade" hideEffect="fade" resizable="false"
+			width="200">
+			
+			<p:outputPanel  id="searchResultBlock" style="text-align:center;">
+								<ui:repeat value="#{searchView.searchList}" var="searchAdv">
+									<li><h:outputText value="#{searchAdv.title}" /></li>
+				<li><h:outputText value="#{searchAdv.selectedAdvertisement.description}" /></li>
+				<li><h:outputText value="#{searchAdv.categroy}" /></li>
+				<li><h:outputText value="#{searchAdv.requestType}" /></li>
+				<li><h:outputText value="#{searchAdv.price}" /></li>
+				<li><h:outputText value="#{searchAdv.firstName}" /></li>
+				<li><h:outputText value="#{searchAdv.lastName}" /></li>
+				<li><h:outputText value="#{searchAdv.vzId}" /></li>
+				<li><h:outputText value="#{searchAdv.phone}" /></li>
+				<li><h:outputText value="#{searchAdv.email}" /></li>
+								</ui:repeat>
+							</p:outputPanel>
+		</p:dialog>
+	</h:form>
 
+
+
+
+	 			
 </body>
 </html>

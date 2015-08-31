@@ -277,8 +277,10 @@ public class CodeRedServices {
 		return advertisementList;
 	}
 
-	public List<Advertisement> search(String titleSearchStr,String commentSearchStr, String category) {
+	public List<Advertisement> search(String searchStr, String category) {
 		final String METHOD_NAME = "CoreRedServices : getAdListForAdmin";
+		System.out.println(METHOD_NAME + "Enter searchStr :" + searchStr);
+		
 		List<Advertisement> advertisementList = new ArrayList<Advertisement>();
 		Advertisement ad = null;
 		try {
@@ -301,9 +303,12 @@ public class CodeRedServices {
 			sb.append(" from admin_map map,category cat ");
 			sb.append(" where  ");
 			sb.append(" map.category_oid=cat.category_oid and  ");
-			sb.append(" map.category_oid in (select category_oid from category where category_name='").append(category).append("'");
-			sb.append(" and (product_title like '%").append(titleSearchStr).append("%'");
-			sb.append(" or product_comment like '%").append(commentSearchStr).append("%'");
+			if(category != null && category != "")
+				sb.append(" map.category_oid in (select category_oid from category where category_name='").append(category).append("'");
+			if(searchStr != null && searchStr != "")  {
+				sb.append(" and (product_title like '%").append(searchStr).append("%'");
+				sb.append(" or product_comment like '%").append(searchStr).append("%'");
+			}
 
 			System.out.println(METHOD_NAME + "QUERY :" + sb.toString());
 			ResultSet rs = stmt.executeQuery(sb.toString());

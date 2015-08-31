@@ -1,26 +1,68 @@
 package com.codered.managebean;
 
+import java.util.List;
+
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
+
+import com.codered.service.Advertisement;
+import com.codered.service.AdvertisementService;
 
 @ManagedBean
 public class SearchView {
 
-	private String text1;
-	private String text2;
+	private String searchStr;
+	private String category;
+	
+	private  List<Advertisement> searchList;
 
-	public String getText1() {
-		return text1;
+	@ManagedProperty("#{adService}")
+	private AdvertisementService adService;
+	
+
+	public void getSearchResults() {
+		System.out.println("INSIDE SEARCH RESULTS");
+		searchList = adService.searchResults(searchStr, category);
+		System.out.println(" SEARCH RESULTS" + searchList);
+	}
+	
+	public String getSearchStr() {
+		return searchStr;
 	}
 
-	public void setText1(String text1) {
-		this.text1 = text1;
+	public void setSearchStr(String searchStr) {
+		this.searchStr = searchStr;
 	}
 
-	public String getText2() {
-		return text2;
+	public String getCategory() {
+		return category;
 	}
 
-	public void setText2(String text2) {
-		this.text2 = text2;
+	public void setCategory(String category) {
+		this.category = category;
 	}
+	
+
+	public List<Advertisement> getSearchList() {
+		return searchList;
+	}
+
+	public void setSearchList(List<Advertisement> searchList) {
+		this.searchList = searchList;
+	}
+
+	public AdvertisementService getAdService() {
+		return adService;
+	}
+
+	public void setAdService(AdvertisementService adService) {
+		this.adService = adService;
+	}
+
+	@Override
+	public String toString() {
+		return "SearchView [searchStr=" + searchStr + ", category=" + category
+				+ "]";
+	}
+
 }

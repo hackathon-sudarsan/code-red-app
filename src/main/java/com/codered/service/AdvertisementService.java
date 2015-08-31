@@ -63,6 +63,11 @@ public class AdvertisementService {
 		return list;
 	}
 	
+	public List<Advertisement> searchResults(String searchStr, String  category) {
+		List<Advertisement> list = new CodeRedServices().search(searchStr, category);
+		return list;
+	}
+	
 	public List<Advertisement> testData() {
 		List<Advertisement> list = new ArrayList<Advertisement>();
 		Advertisement ad = null;
