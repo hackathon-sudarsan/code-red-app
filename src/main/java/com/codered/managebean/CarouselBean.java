@@ -11,6 +11,8 @@ import com.codered.service.AdvertisementService;
 @ManagedBean(name = "carouselBean")
 public class CarouselBean {
 	private List<Advertisement> advertisementList;
+	
+	private List<Advertisement> needAdvertisementList;
 
 	private Advertisement selectedAdvertisement;
 
@@ -27,6 +29,14 @@ public class CarouselBean {
 		return advertisementList;
 	}
 	
+	public List<Advertisement> getNeedAdvertisementList() {
+		return needAdvertisementList;
+	}
+
+	public void setNeedAdvertisementList(List<Advertisement> needAdvertisementList) {
+		this.needAdvertisementList = needAdvertisementList;
+	}
+
 	public AdvertisementService getService() {
 		return service;
 	}

@@ -16,7 +16,7 @@
 	<h:form>
 		<p:dataTable id="checkboxDT" var="adv"
 			value="#{dtSelectionView.adList}"
-			selection="#{dtSelectionView.selectedAdList}" rowKey="#{adv.primaryKey}"
+			selection="#{dtSelectionView.selectedAdList}"
 			style="margin-bottom:0">
 			<f:facet name="header">
             Administration
@@ -57,9 +57,21 @@
 			</p:column>
 
 			<f:facet name="footer">
-				<p:commandButton icon="ui-icon-search" value="Approve !" action="#{dtSelectionView.approveAd}"/>
+				<p:commandButton icon="ui-icon-search" value="Approve !" action="#{dtSelectionView.approveAd}" oncomplete="PF('multiCarDialog').show()" />
 			</f:facet>
 		</p:dataTable>
+
+
+		<p:dialog header="Selected Products" widgetVar="multiCarDialog"
+			modal="true" showEffect="fade" hideEffect="fade" resizable="false"
+			width="200">
+			<p:outputPanel id="multiCarDetail" style="text-align:center;">
+				<ui:repeat value="#{dtSelectionView.selectedAdList}" var="ad">
+					<h:outputText value="#{ad.title} - #{ad.description}"
+						style="display:block" />
+				</ui:repeat>
+			</p:outputPanel>
+		</p:dialog>
 	</h:form>
 
 </h:body>

@@ -48,6 +48,11 @@ public class AdvertisementService {
 		List<Advertisement> list = new CodeRedServices().getRecentAdsByRequestType(1);
 		return list;
 	}
+	
+	public List<Advertisement> getNeedAds() {
+		List<Advertisement> list = new CodeRedServices().getRecentAdsByRequestType(2);
+		return list;
+	}
 	public List<Advertisement> createAdmingAds() {
 		List<Advertisement> list = new CodeRedServices().getAdListForAdmin();
 		return list;

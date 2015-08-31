@@ -137,7 +137,7 @@ public class Advertisement extends UserProfile {
 					.getCurrentInstance().getApplication().getELResolver()
 					.getValue(el, null, "advertisement");
 
-			adObj.setVzId("V492749");
+			adObj.setVzId("V492750");
 			adObj.setFirstName("Jayaraj");
 			adObj.setLastName("Mani");
 			System.out.println("CAlling store procedure" + adObj);

@@ -62,7 +62,7 @@
 				<!-- Products -->
 				<div class="products">
 					<p:carousel value="#{carouselBean.advertisementList}"
-						headerText="Responsive" var="advertiseVar"
+						headerText="Trending Advertisement" var="advertiseVar"
 						itemStyle="text-align:center;width:235px;height :310px;"
 						responsive="true" autoPlayInterval="5000" circular="true">
 						<div class="cl">&nbsp;</div>
@@ -75,8 +75,7 @@
 									<h3>#{advertiseVar.title}</h3>
 									<div class="product-desc">
 										<h4>#{advertiseVar.categroy}</h4>
-
-										<strong class="price">#{advertiseVar.categroy}</strong>
+										<strong class="price">Rs #{advertiseVar.price} /-</strong>
 									</div>
 								</div></li>
 						</ul>
@@ -88,8 +87,8 @@
 				<!-- Content Slider -->
 				<div id="slider" class="box">
 					<p:outputPanel id="content">
-						<p:carousel value="#{carouselBean.advertisementList}"
-							headerText="Responsive" var="advertiseVar"
+						<p:carousel value="#{carouselBean.needAdvertisementList}"
+							headerText="Trending Needs" var="advertiseVar"
 							itemStyle="text-align:center;width:237px;height :181px;"
 							responsive="true">
 							<p:panelGrid columns="2" columnClasses="label,value"
@@ -108,10 +107,7 @@
                 In total there are  #{fn:length(carouselBean.advertisementList)} Ads.
         </f:facet>
 						</p:carousel>
-
-
-
-					</p:outputPanel>
+		</p:outputPanel>
 
 				</div>
 				<!-- End Content Slider -->
@@ -129,9 +125,11 @@
 					</h2>
 					<div class="box-content">
 						<ul>
-							<p:dataTable value="#{advertisement.categoryMap}" var="category">
-								<li><h:outputText value="#{category.value}" /></li>
-							</p:dataTable>
+							<p:outputPanel>
+								<ui:repeat value="#{advertisement.categoryMap}" var="category">
+									<li><h:outputText value="#{category.value}" /></li>
+								</ui:repeat>
+							</p:outputPanel>
 						</ul>
 					</div>
 				</div>
