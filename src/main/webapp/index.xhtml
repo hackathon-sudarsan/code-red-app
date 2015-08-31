@@ -74,7 +74,13 @@
 								<p:graphicImage url="#{resource['default:images/big1.jpg']}"> </p:graphicImage>
     							<f:setPropertyActionListener target="#{selectedAdvertisement}" value="#{advertiseVar}" />
 							</h:commandLink>
-								<div class="product-info">
+							    <p:commandButton update=":detailsForm:selectedProducteDetailsId"
+										oncomplete="PF('selectedProdWidget').show()" icon="ui-icon-search"
+										title="View">
+										<f:setPropertyActionListener value="#{advertiseVar}" target="#{selectedAdvertisement}" />
+									</p:commandButton>
+
+									<div class="product-info">
 									<h3>#{advertiseVar.title}</h3>
 									<div class="product-desc">
 										<h4>#{advertiseVar.categroy}</h4>
@@ -258,6 +264,17 @@
 			</h:panelGrid>
 		</h:form>
 	</p:dialog>
+
+	<h:form id="detailsForm">
+		<p:dialog header="Selected Products" widgetVar="selectedProdWidget"
+			modal="true" showEffect="fade" hideEffect="fade" resizable="false"
+			width="200">
+			<p:outputPanel  id="selectedProducteDetailsId" style="text-align:center;">
+				<h:outputText value="title" />
+				<h:outputText value="#{dtSelectionView.selectedAdv.title}" />
+			</p:outputPanel>
+		</p:dialog>
+	</h:form>
 
 </body>
 </html>

@@ -13,7 +13,7 @@
 </h:head>
 <h:body>
 
-	<h:form>
+	<h:form id="myform">
 		<p:dataTable id="checkboxDT" var="adv"
 			value="#{dtSelectionView.adList}"
 			selection="#{dtSelectionView.selectedAdList}"
@@ -63,11 +63,7 @@
 			</f:facet>
 		</p:dataTable>
 
-
-
-
-
-  <p:dataTable id="basicDT" var="car" value="#{dtSelectionView.adList}">
+  <!-- <p:dataTable id="basicDT" var="car" value="#{dtSelectionView.adList}">
         <f:facet name="header">
             Basic
         </f:facet>
@@ -75,25 +71,23 @@
             <h:outputText value="#{car.title}" />
         </p:column>
         <p:column style="width:32px;text-align: center">
-             <p:commandButton update="multiCarDetail" oncomplete="PF('multiCarDialog').show()" icon="ui-icon-search" title="View">
+             <p:commandButton update=":myform:multiCarDetailtest" oncomplete="PF('multiCarDialog').show()" icon="ui-icon-search" title="View">
                 <f:setPropertyActionListener value="#{car}" target="#{dtSelectionView.selectedAdv}" />
             </p:commandButton>
         </p:column>
-    </p:dataTable>
-
-
+    </p:dataTable> -->
 		<p:dialog header="Selected Products" widgetVar="multiCarDialog"
 			modal="true" showEffect="fade" hideEffect="fade" resizable="false"
 			width="200">
-			<p:outputPanel id="multiCarDetail" style="text-align:center;">
-			<h:outputText value="title" />
+			<p:outputPanel style="text-align:center;">
+			<h:outputText id="multiCarDetailtest"  value="title" />
                 <h:outputText value="#{dtSelectionView.selectedAdv.title}" />
 				<!-- <ui:repeat value="#{dtSelectionView.selectedAdList}" var="ad">
 					<h:outputText value="#{ad.title} - #{ad.description}"
 						style="display:block" />
 				</ui:repeat> -->
 			</p:outputPanel>
-		</p:dialog>
+		</p:dialog> 
 	</h:form>
 
 </h:body>
