@@ -42,12 +42,14 @@ public class Advertisement extends UserProfile {
 	}
 
 	private Map<String, String> categoryMap;
+	
+	private List<Category>  categoryList;
 
 	@PostConstruct
 	public void init() {
 		categoryMap = new HashMap<String, String>();
 		System.out.println("CAlling store procedure" + categoryMap);
-		List<Category> categoryList = new CodeRedServices().getALLCategory();
+		categoryList = new CodeRedServices().getALLCategory();
 		for (Category catObj : categoryList) {
 			categoryMap.put(catObj.getCategoryName(), catObj.getCategoryName());
 		}
@@ -56,6 +58,14 @@ public class Advertisement extends UserProfile {
 	public Advertisement(String title, String desc) {
 		this.title = title;
 		this.description = desc;
+	}
+
+	public List<Category> getCategoryList() {
+		return categoryList;
+	}
+
+	public void setCategoryList(List<Category> categoryList) {
+		this.categoryList = categoryList;
 	}
 
 	public Map<String, String> getCategoryMap() {
