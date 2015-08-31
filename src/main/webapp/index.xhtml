@@ -12,13 +12,6 @@
 </h:head>
 <body>
 
-<p:ajaxStatus onstart="PF('statusDialog').show()"
-		onsuccess="PF('statusDialog').hide()" />
-
-	<p:dialog widgetVar="statusDialog" modal="true" draggable="false"
-		closable="false" resizable="false" showHeader="false">
-		<p:graphicImage name="#{resource['default:images/ajaxloadingbar.gif']}" />
-	</p:dialog>
 	<!-- Shell -->
 	<div class="shell">
 		<!-- Header -->
@@ -141,19 +134,20 @@
 						<f:selectItem itemLabel="Select Category" itemValue="" noSelectionOption="true" />
 						<f:selectItems value="#{advertisement.categoryMap}" />
 					</p:selectOneMenu>
-
-	 		<p:commandButton update=":searchform:searchResultBlock" styleClass="search-submit" 
-	 			oncomplete="PF('searchResultDialog').show()" icon="ui-icon-search" value="Search" action="#{searchView.getSearchResults}" >
+	 		<p:commandButton  styleClass="search-submit"  update=":searchform:searchResultBlock"
+	 			oncomplete="PF('searchProdWidget').show()" icon="ui-icon-search" value="Search" action="#{searchView.getSearchResults}" >
 	 			
 	 			<p>
 								<a href="#" class="bul">Advanced search</a><br />
 							</p>
             </p:commandButton>
-	
-					<!-- <p:commandButton update="@form" styleClass="search-submit"
-								value="Search" />
-							
- -->
+            <p:ajaxStatus onstart="PF('statusDialog').show()"
+		onsuccess="PF('statusDialog').hide()" />
+
+	<p:dialog widgetVar="statusDialog" modal="true" draggable="false"
+		closable="false" resizable="false" showHeader="false">
+		<p:graphicImage name="#{resource['default:images/ajaxloadingbar.gif']}" />
+	</p:dialog>
 						</h:form>
 					</div>
 				</div>
@@ -285,25 +279,60 @@
 			width="200">
 			
 			<p:outputPanel  id="searchResultBlock" style="text-align:center;">
-								<ui:repeat value="#{searchView.searchList}" var="searchAdv">
-									<li><h:outputText value="#{searchAdv.title}" /></li>
-				<li><h:outputText value="#{searchAdv.description}" /></li>
-				<li><h:outputText value="#{searchAdv.categroy}" /></li>
-				<li><h:outputText value="#{searchAdv.requestType}" /></li>
-				<li><h:outputText value="#{searchAdv.price}" /></li>
-				<li><h:outputText value="#{searchAdv.firstName}" /></li>
-				<li><h:outputText value="#{searchAdv.lastName}" /></li>
-				<li><h:outputText value="#{searchAdv.vzId}" /></li>
-				<li><h:outputText value="#{searchAdv.phone}" /></li>
-				<li><h:outputText value="#{searchAdv.email}" /></li>
-								</ui:repeat>
+				<p:dataScroller value="#{searchView.searchList}" var="searchAdv"
+					chunkSize="2">
+					<f:facet name="loader">
+						<p:commandButton type="button" value="More"
+							icon="ui-icon-circle-triangle-s" />
+					</f:facet>
+
+					<h:panelGrid columns="1" style="width:100%"
+						columnClasses="logo,detail">
+					
+						<p:outputPanel>
+							<h:panelGrid columns="2" cellpadding="5">
+								<h:outputText value="Title" />
+								<h:outputText value="#{searchAdv.title}" style="font-weight: bold" />
+								
+								<h:outputText value="Description" />
+								<h:outputText value="#{searchAdv.description}" style="font-weight: bold" />
+								
+								<h:outputText value="Request Type" />
+								<h:outputText value="#{searchAdv.requestType}" style="font-weight: bold" />
+								
+								
+								<h:outputText value="Price" />
+								<h:outputText value="#{searchAdv.price}" style="font-weight: bold" />
+								
+								
+								<h:outputText value="First Name" />
+								<h:outputText value="#{searchAdv.firstName}" style="font-weight: bold" />
+								
+								
+								<h:outputText value="Last Name" />
+								<h:outputText value="#{searchAdv.lastName}" style="font-weight: bold" />
+								
+								<h:outputText value="Vz Id" />
+								<h:outputText value="#{searchAdv.vzId}" style="font-weight: bold" />
+								
+								
+								<h:outputText value="Phone" />
+								<h:outputText value="#{searchAdv.phone}" style="font-weight: bold" />
+								
+								
+								<h:outputText value="Email" />
+								<h:outputText value="#{searchAdv.email}" style="font-weight: bold" />
+								
+							</h:panelGrid>
+						</p:outputPanel>
+					</h:panelGrid>
+				</p:dataScroller>
+			
 							</p:outputPanel>
 		</p:dialog>
+		
+		
 	</h:form>
-
-
-
-
 	 			
 </body>
 </html>

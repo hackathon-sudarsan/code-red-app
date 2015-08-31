@@ -304,10 +304,10 @@ public class CodeRedServices {
 			sb.append(" where  ");
 			sb.append(" map.category_oid=cat.category_oid   ");
 			if(category != null && category != "")
-				sb.append(" and map.category_oid in (select category_oid from category where category_name='").append(category).append("'");
+				sb.append(" and map.category_oid in (select category_oid from category where category_name='").append(category).append("')");
 			if(searchStr != null && searchStr != "")  {
-				sb.append(" and (product_title like '%").append(searchStr).append("%'");
-				sb.append(" or product_comment like '%").append(searchStr).append("%') ");
+				sb.append(" and (product_title like '%").append(searchStr.toUpperCase()).append("%'");
+				sb.append(" or product_comment like '%").append(searchStr.toUpperCase()).append("%') ");
 			}
 
 			System.out.println(METHOD_NAME + "QUERY :" + sb.toString());
