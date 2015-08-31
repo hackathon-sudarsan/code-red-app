@@ -10,6 +10,8 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 
+import org.primefaces.model.UploadedFile;
+
 import com.codered.dataobject.Category;
 import com.codered.managebean.UserProfile;
 import com.codered.rest.CodeRedServices;
@@ -25,18 +27,29 @@ public class Advertisement extends UserProfile {
 	private int primaryKey;
 	private String dateAdded;
 	private String adminMapOid;
+	private UploadedFile file;
+
+	public UploadedFile getFile() {
+		return file;
+	}
+
+	public void setFile(UploadedFile file) {
+		this.file = file;
+	}
 
 	public Advertisement() {
 
 	}
+
 	private Map<String, String> categoryMap;
+
 	@PostConstruct
 	public void init() {
 		categoryMap = new HashMap<String, String>();
 		System.out.println("CAlling store procedure" + categoryMap);
 		List<Category> categoryList = new CodeRedServices().getALLCategory();
-		for(Category catObj :categoryList) {
-			categoryMap.put(catObj.getCategoryName(),catObj.getCategoryName());
+		for (Category catObj : categoryList) {
+			categoryMap.put(catObj.getCategoryName(), catObj.getCategoryName());
 		}
 	}
 
@@ -120,30 +133,37 @@ public class Advertisement extends UserProfile {
 	public void createAd() {
 		try {
 			ELContext el = FacesContext.getCurrentInstance().getELContext();
-			Advertisement adObj = (Advertisement) FacesContext.getCurrentInstance().getApplication().getELResolver()
+			Advertisement adObj = (Advertisement) FacesContext
+					.getCurrentInstance().getApplication().getELResolver()
 					.getValue(el, null, "advertisement");
 
 			adObj.setVzId("V492749");
 			adObj.setFirstName("Jayaraj");
 			adObj.setLastName("Mani");
 			System.out.println("CAlling store procedure" + adObj);
+			 if(file != null) {
+				 System.out.println("File " +  file.getFileName() + " is uploaded.");
+			 }
 			new CodeRedServices().manageAd(adObj);
 			System.out.println("Done with store procedure");
-			FacesContext.getCurrentInstance().addMessage(null,
-					new FacesMessage(FacesMessage.SEVERITY_INFO, "Info", "PrimeFaces Rocks."));
+			FacesContext.getCurrentInstance().addMessage(
+					null,
+					new FacesMessage(FacesMessage.SEVERITY_INFO, "Info",
+							"Your Advertisement Posted Successfully !."));
 			System.out.println("Inside Post Add" + adObj.toString());
 
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
-	
-	
+
 	@Override
 	public String toString() {
-		return "Advertisement [categroy=" + categroy + ", requestType=" + requestType + ", title=" + title
-				+ ", description=" + description + ", price=" + price + ", primaryKey=" + primaryKey + "]"
-				+ "UserProfile [firstName=" + firstName + ", lastName=" + lastName + ", vzId=" + vzId + ", phone="
+		return "Advertisement [categroy=" + categroy + ", requestType="
+				+ requestType + ", title=" + title + ", description="
+				+ description + ", price=" + price + ", primaryKey="
+				+ primaryKey + "]" + "UserProfile [firstName=" + firstName
+				+ ", lastName=" + lastName + ", vzId=" + vzId + ", phone="
 				+ phone + ", email=" + email + "]";
 	}
 

@@ -57,7 +57,6 @@
 		<!-- Main -->
 		<div id="main">
 			<div class="cl">&nbsp;</div>
-
 			<!-- Content -->
 			<div id="content">
 				<!-- Products -->
@@ -66,59 +65,25 @@
 						headerText="Responsive" var="advertiseVar"
 						itemStyle="text-align:center;width:235px;height :310px;"
 						responsive="true" autoPlayInterval="5000" circular="true">
-
 						<div class="cl">&nbsp;</div>
 						<ul>
 							<li><a href="#"> <p:graphicImage
 										url="#{resource['default:images/big1.jpg']}">
 									</p:graphicImage>
+							</a>
+								<div class="product-info">
+									<h3>#{advertiseVar.title}</h3>
+									<div class="product-desc">
+										<h4>#{advertiseVar.categroy}</h4>
 
-							</a>
-								<div class="product-info">
-									<h3>LOREM IPSUM</h3>
-									<div class="product-desc">
-										<h4>WOMEN’S</h4>
-										<p>
-											Lorem ipsum dolor sit<br />amet
-										</p>
-										<strong class="price">Rs.5000</strong>
-									</div>
-								</div></li>
-							<li><a href="#"> <p:graphicImage
-										url="#{resource['default:images/big2.jpg']}">
-									</p:graphicImage>
-							</a>
-								<div class="product-info">
-									<h3>LOREM IPSUM</h3>
-									<div class="product-desc">
-										<h4>WOMEN’S</h4>
-										<p>
-											Lorem ipsum dolor sit<br />amet
-										</p>
-										<strong class="price">Rs.5000</strong>
-									</div>
-								</div></li>
-							<li class="last"><a href="#"><p:graphicImage
-										url="#{resource['default:images/big3.jpg']}">
-									</p:graphicImage></a>
-								<div class="product-info">
-									<h3>LOREM IPSUM</h3>
-									<div class="product-desc">
-										<h4>WOMEN’S</h4>
-										<p>
-											Lorem ipsum dolor sit<br />amet
-										</p>
-										<strong class="price">Rs.4000</strong>
+										<strong class="price">#{advertiseVar.categroy}</strong>
 									</div>
 								</div></li>
 						</ul>
 						<div class="cl">&nbsp;</div>
-
 					</p:carousel>
-
 				</div>
 				<!-- End Products -->
-
 
 				<!-- Content Slider -->
 				<div id="slider" class="box">
@@ -165,9 +130,7 @@
 					<div class="box-content">
 						<ul>
 							<p:dataTable value="#{advertisement.categoryMap}" var="category">
-								<li>
-									<h:outputText value="#{category.value}" />
-								</li>
+								<li><h:outputText value="#{category.value}" /></li>
 							</p:dataTable>
 						</ul>
 					</div>
@@ -230,16 +193,12 @@
 
 	</div>
 	<!-- End Shell -->
-
-
 	<p:dialog header="POST YOUR ADVERTISEMENT HERE !" widgetVar="dlg2"
-		modal="true" height="420" width="500">
-		<h:form>
+		modal="true" height="450" width="510">
+		<h:form enctype="multipart/form-data">
 			<p:messages id="messages" showDetail="true" autoUpdate="true"
 				closable="true" />
-
 			<h:panelGrid columns="3" cellpadding="20" cellspacing="20">
-
 				<h:outputLabel for="category" value="Select Category" />
 				<p:message for="Title" />
 
@@ -268,6 +227,11 @@
 					required="true" label="Description" />
 				<p:message for="Description" />
 
+				<h:outputLabel for="Picture" value="Picture" />
+				<p:fileUpload id="Picture" value="#{advertisement.file}"
+					mode="simple" skinSimple="true" />
+				<p:message for="Picture" />
+
 				<h:outputLabel for="Price" value="Price" />
 				<p:inputText id="Price" value="#{advertisement.price}"
 					required="true" label="Price" />
@@ -284,7 +248,8 @@
 				<p:message for="Email" />
 
 				<f:facet name="footer">
-					<p:commandButton action="#{advertisement.createAd}" value="POST" />
+					<p:commandButton value="POST" ajax="false"
+						actionListener="#{advertisement.createAd}" />
 				</f:facet>
 
 			</h:panelGrid>
