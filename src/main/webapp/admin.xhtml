@@ -17,7 +17,8 @@
 		<p:dataTable id="checkboxDT" var="adv"
 			value="#{dtSelectionView.adList}"
 			selection="#{dtSelectionView.selectedAdList}"
-			style="margin-bottom:0">
+			selectionMode="multiple"
+			rowKey="#{adv.adminMapOid}">
 			<f:facet name="header">
             Administration
         </f:facet>

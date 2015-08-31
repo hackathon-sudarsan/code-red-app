@@ -22,6 +22,7 @@ public class CarouselBean {
 	@PostConstruct
     public void init() {
         advertisementList = service.createAds();
+        needAdvertisementList = service.getNeedAds();
         System.out.println("test" + advertisementList);
     }
 
