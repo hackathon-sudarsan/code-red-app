@@ -11,6 +11,14 @@
 	<h:outputStylesheet library="default" name="css/style.css" />
 </h:head>
 <body>
+
+<p:ajaxStatus onstart="PF('statusDialog').show()"
+		onsuccess="PF('statusDialog').hide()" />
+
+	<p:dialog widgetVar="statusDialog" modal="true" draggable="false"
+		closable="false" resizable="false" showHeader="false">
+		<p:graphicImage name="#{resource['default:images/ajaxloadingbar.gif']}" />
+	</p:dialog>
 	<!-- Shell -->
 	<div class="shell">
 		<!-- Header -->
@@ -244,7 +252,7 @@
 				<p:message for="Email" />
 
 				<f:facet name="footer">
-					<p:commandButton value="POST" ajax="false"
+					<p:commandButton value="POST" 
 						actionListener="#{advertisement.createAd}" />
 				</f:facet>
 
@@ -270,7 +278,7 @@
 			</p:outputPanel>
 		</p:dialog>
 	</h:form>
-	
+
 	<h:form id="searchform">
 		<p:dialog header="Search Results" widgetVar="searchProdWidget"
 			modal="true" showEffect="fade" hideEffect="fade" resizable="false"
@@ -279,7 +287,7 @@
 			<p:outputPanel  id="searchResultBlock" style="text-align:center;">
 								<ui:repeat value="#{searchView.searchList}" var="searchAdv">
 									<li><h:outputText value="#{searchAdv.title}" /></li>
-				<li><h:outputText value="#{searchAdv.selectedAdvertisement.description}" /></li>
+				<li><h:outputText value="#{searchAdv.description}" /></li>
 				<li><h:outputText value="#{searchAdv.categroy}" /></li>
 				<li><h:outputText value="#{searchAdv.requestType}" /></li>
 				<li><h:outputText value="#{searchAdv.price}" /></li>
