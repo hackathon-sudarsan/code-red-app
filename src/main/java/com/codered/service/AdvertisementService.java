@@ -62,6 +62,20 @@ public class AdvertisementService {
 		List<Advertisement> list = new CodeRedServices().getAdListForAdmin();
 		return list;
 	}
+	
+	public List<Advertisement> testData() {
+		List<Advertisement> list = new ArrayList<Advertisement>();
+		Advertisement ad = null;
+		for(int i=1; i <=5; i++) {
+			ad = new Advertisement();
+			ad.setAdminMapOid(""+i);
+			ad.setTitle("titillle");;
+			list.add(ad);
+		}
+		return list;
+	}
+	
+	
 	private String getRandomName() {
 		return name[(int) (Math.random() * 10)];
 	}

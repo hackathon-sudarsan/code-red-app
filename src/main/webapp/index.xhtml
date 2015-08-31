@@ -70,18 +70,14 @@
 						<div class="cl">&nbsp;</div>
 						<ul>
 							<li>
-							<h:commandLink action="#{carouselBean.getDetails}">
 								<p:graphicImage url="#{resource['default:images/big1.jpg']}"> </p:graphicImage>
-    							<f:setPropertyActionListener target="#{selectedAdvertisement}" value="#{advertiseVar}" />
-							</h:commandLink>
-							    <p:commandButton update=":detailsForm:selectedProducteDetailsId"
-										oncomplete="PF('selectedProdWidget').show()" icon="ui-icon-search"
-										title="View">
-										<f:setPropertyActionListener value="#{advertiseVar}" target="#{selectedAdvertisement}" />
-									</p:commandButton>
-
 									<div class="product-info">
-									<h3>#{advertiseVar.title}</h3>
+									<h3>
+									<p:commandLink update=":detailsForm:selectedProducteDetailsId"
+										oncomplete="PF('selectedProdWidget').show()" icon="ui-icon-search"
+										title="View" value="#{advertiseVar.title}">
+										<f:setPropertyActionListener value="#{advertiseVar}" target="#{carouselBean.selectedAdvertisement}" />
+									</p:commandLink></h3>
 									<div class="product-desc">
 										<h4>#{advertiseVar.categroy}</h4>
 										<strong class="price">Rs : #{advertiseVar.price} /-</strong>
@@ -270,8 +266,16 @@
 			modal="true" showEffect="fade" hideEffect="fade" resizable="false"
 			width="200">
 			<p:outputPanel  id="selectedProducteDetailsId" style="text-align:center;">
-				<h:outputText value="title" />
-				<h:outputText value="#{dtSelectionView.selectedAdv.title}" />
+				<h:outputText value="#{carouselBean.selectedAdvertisement.title}" />
+				<h:outputText value="#{carouselBean.selectedAdvertisement.description}" />
+				<h:outputText value="#{carouselBean.selectedAdvertisement.categroy}" />
+				<h:outputText value="#{carouselBean.selectedAdvertisement.requestType}" />
+				<h:outputText value="#{carouselBean.selectedAdvertisement.price}" />
+				<h:outputText value="#{carouselBean.selectedAdvertisement.firstName}" />
+				<h:outputText value="#{carouselBean.selectedAdvertisement.lastName}" />
+				<h:outputText value="#{carouselBean.selectedAdvertisement.vzId}" />
+				<h:outputText value="#{carouselBean.selectedAdvertisement.phone}" />
+				<h:outputText value="#{carouselBean.selectedAdvertisement.email}" />
 			</p:outputPanel>
 		</p:dialog>
 	</h:form>
