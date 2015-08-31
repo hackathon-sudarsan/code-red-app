@@ -69,10 +69,9 @@
 						<ul>
 							<li>
 							<h:commandLink action="#{carouselBean.getDetails}">
+								<p:graphicImage url="#{resource['default:images/big1.jpg']}"> </p:graphicImage>
     							<f:setPropertyActionListener target="#{selectedAdvertisement}" value="#{advertiseVar}" />
 							</h:commandLink>
-							 <p:graphicImage url="#{resource['default:images/big1.jpg']}"> </p:graphicImage>
-							</a>
 								<div class="product-info">
 									<h3>#{advertiseVar.title}</h3>
 									<div class="product-desc">
