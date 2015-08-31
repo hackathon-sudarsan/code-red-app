@@ -67,9 +67,11 @@
 						responsive="true" autoPlayInterval="5000" circular="true">
 						<div class="cl">&nbsp;</div>
 						<ul>
-							<li><a href="#"> <p:graphicImage
-										url="#{resource['default:images/big1.jpg']}">
-									</p:graphicImage>
+							<li>
+							<h:commandLink action="#{carouselBean.getDetails}">
+    							<f:setPropertyActionListener target="#{selectedAdvertisement}" value="#{advertiseVar}" />
+							</h:commandLink>
+							 <p:graphicImage url="#{resource['default:images/big1.jpg']}"> </p:graphicImage>
 							</a>
 								<div class="product-info">
 									<h3>#{advertiseVar.title}</h3>
@@ -121,23 +123,6 @@
 			<!-- Sidebar -->
 			<div id="sidebar">
 
-				<!-- Categories -->
-				<div class="box categories">
-					<h2>
-						Categories <span></span>
-					</h2>
-					<div class="box-content">
-						<ul>
-							<p:outputPanel>
-								<ui:repeat value="#{advertisement.categoryList}" var="categ">
-									<li><h:outputText value="#{categ.categoryName}" /></li>
-								</ui:repeat>
-							</p:outputPanel>
-						</ul>
-					</div>
-				</div>
-				<!-- End Categories -->
-
 
 				<!-- Search -->
 				<div class="box search">
@@ -170,6 +155,23 @@
 					</div>
 				</div>
 				<!-- End Search -->
+				
+				<!-- Categories -->
+				<div class="box categories">
+					<h2>
+						Categories <span></span>
+					</h2>
+					<div class="box-content">
+						<ul>
+							<p:outputPanel>
+								<ui:repeat value="#{advertisement.categoryList}" var="categ">
+									<li><h:outputText value="#{categ.categoryName}" /></li>
+								</ui:repeat>
+							</p:outputPanel>
+						</ul>
+					</div>
+				</div>
+				<!-- End Categories -->
 			</div>
 			<!-- End Sidebar -->
 

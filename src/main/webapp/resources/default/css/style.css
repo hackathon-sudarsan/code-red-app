@@ -79,7 +79,7 @@ a.bul { background: url("#{resource['default:images/bul.gif']}") no-repeat 0 cen
 
 .search-submit { /*width:70px;*/ background:#8b0000; border:0; color:#fff; height:27px; display:block; line-height:26px; cursor:pointer; margin:12px 0 10px 0;}
 
-.categories { min-height:383px; }
+.categories { /*min-height:383px;*/ }
 .categories ul { list-style-type: none; font-size:13px;}
 .categories ul li{ border-bottom:dashed 1px #ccc; padding:5px 0;}
 .categories ul li.last{ border-bottom:0; padding-bottom:0;}

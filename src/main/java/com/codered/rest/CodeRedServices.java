@@ -169,7 +169,7 @@ public class CodeRedServices {
 		return advertisementList;
 	}
 
-	public Advertisement getAdDetails(int id) {
+	public Advertisement getAdDetails(String id) {
 		final String METHOD_NAME = "CoreRedServices : getAdDetails";
 		Advertisement ad = null;
 		try {

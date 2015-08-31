@@ -25,6 +25,13 @@ public class CarouselBean {
         System.out.println("test" + advertisementList);
     }
 
+	public void getDetails() {
+		System.out.println("Selected ID =========>" + selectedAdvertisement);
+		if(selectedAdvertisement !=null)
+			selectedAdvertisement = service.getNeedAds(selectedAdvertisement.getAdminMapOid());
+	}
+	
+	
 	public List<Advertisement> getAdvertisementList() {
 		return advertisementList;
 	}
