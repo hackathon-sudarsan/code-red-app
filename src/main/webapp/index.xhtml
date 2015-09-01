@@ -52,7 +52,6 @@
 			<div id="content">
 				<!-- Products -->
 				<div class="products">
-				
 				<h:form>
 					<p:carousel value="#{carouselBean.advertisementList}"
 						headerText="Trending Advertisement" var="advertiseVar"
@@ -250,22 +249,42 @@
 
 	<h:form id="detailsForm">
 		<p:dialog header="Selected Products" widgetVar="selectedProdWidget"
-			modal="true" showEffect="fade" hideEffect="fade" resizable="false"
-			width="200">
-			<p:outputPanel  id="selectedProducteDetailsId" style="text-align:center;">
-				<h:outputText value="#{carouselBean.selectedAdvertisement.title}" />
-				<h:outputText value="#{carouselBean.selectedAdvertisement.description}" />
-				<h:outputText value="#{carouselBean.selectedAdvertisement.categroy}" />
-				<h:outputText value="#{carouselBean.selectedAdvertisement.requestType}" />
-				<h:outputText value="#{carouselBean.selectedAdvertisement.price}" />
-				<h:outputText value="#{carouselBean.selectedAdvertisement.firstName}" />
-				<h:outputText value="#{carouselBean.selectedAdvertisement.lastName}" />
-				<h:outputText value="#{carouselBean.selectedAdvertisement.vzId}" />
-				<h:outputText value="#{carouselBean.selectedAdvertisement.phone}" />
-				<h:outputText value="#{carouselBean.selectedAdvertisement.email}" />
-			</p:outputPanel>
+			modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+			<p:panelGrid columns="2" columnClasses="label,value"
+								layout="grid" styleClass="ui-panelgrid-blank" style="align:left">
+								
+								<h:outputText value="Title" />
+								<h:outputText value="#{carouselBean.selectedAdvertisement.title}" style="font-weight: bold" />
+								
+								<h:outputText value="Description" />
+								<h:outputText value="#{carouselBean.selectedAdvertisement.description}" style="font-weight: bold" />
+								
+								<h:outputText value="Price" />
+								<h:outputText value="#{carouselBean.selectedAdvertisement.price}" style="font-weight: bold" />
+								
+								<h:outputText value="Request Type" />
+								<h:outputText value="#{carouselBean.selectedAdvertisement.requestType}" style="font-weight: bold" />
+								
+								<h:outputText value="Category" />
+								<h:outputText value="#{carouselBean.selectedAdvertisement.categroy}" style="font-weight: bold" />
+								
+								<h:outputText value="First Name" />
+								<h:outputText value="#{carouselBean.selectedAdvertisement.firstName}" style="font-weight: bold" />
+								
+								<h:outputText value="Last Name" />
+								<h:outputText value="#{carouselBean.selectedAdvertisement.lastName}" style="font-weight: bold" />
+								
+								<h:outputText value="VZ Id" />
+								<h:outputText value="#{carouselBean.selectedAdvertisement.vzId}" style="font-weight: bold" />
+								
+								<h:outputText value="Phone" />
+								<h:outputText value="#{carouselBean.selectedAdvertisement.phone}" style="font-weight: bold" />
+								
+								<h:outputText value="Email" />
+								<h:outputText value="#{carouselBean.selectedAdvertisement.email}" style="font-weight: bold" />
+								
+							</p:panelGrid>
 		</p:dialog>
-		
 	</h:form>
 
 	<h:form id="searchform">
@@ -282,7 +301,6 @@
 
 					<h:panelGrid columns="1" style="width:100%"
 						columnClasses="logo,detail">
-					
 						<p:outputPanel>
 							<h:panelGrid columns="2" cellpadding="5">
 								<h:outputText value="Title" />
@@ -290,25 +308,9 @@
 								
 								<h:outputText value="Description" />
 								<h:outputText value="#{searchAdv.description}" style="font-weight: bold" />
-								
-								<h:outputText value="Request Type" />
-								<h:outputText value="#{searchAdv.requestType}" style="font-weight: bold" />
-								
-								
+							
 								<h:outputText value="Price" />
 								<h:outputText value="#{searchAdv.price}" style="font-weight: bold" />
-								
-								
-								<h:outputText value="First Name" />
-								<h:outputText value="#{searchAdv.firstName}" style="font-weight: bold" />
-								
-								
-								<h:outputText value="Last Name" />
-								<h:outputText value="#{searchAdv.lastName}" style="font-weight: bold" />
-								
-								<h:outputText value="Vz Id" />
-								<h:outputText value="#{searchAdv.vzId}" style="font-weight: bold" />
-								
 								
 								<h:outputText value="Phone" />
 								<h:outputText value="#{searchAdv.phone}" style="font-weight: bold" />
