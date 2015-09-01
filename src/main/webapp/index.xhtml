@@ -238,6 +238,9 @@
 				<p:inputText id="Email" value="#{advertisement.email}"
 					required="true" label="Email" />
 
+		<h:outputLabel for="vzid" value="vzid" />
+				<p:inputText id="vzid" value="#{param['vzid']}"/>
+
 				
 					<p:commandButton styleClass="ralign" value="Post Advertisement" 
 						actionListener="#{advertisement.createAd}" />
@@ -250,7 +253,7 @@
 	<h:form id="detailsForm">
 		<p:dialog header="Selected Products" widgetVar="selectedProdWidget"
 			modal="true" showEffect="fade" hideEffect="fade" resizable="false">
-			<p:panelGrid columns="2" columnClasses="label,value"
+			<p:panelGrid id="selectedProducteDetailsId"  columns="2" columnClasses="label,value"
 								layout="grid" styleClass="ui-panelgrid-blank" style="align:left">
 								
 								<h:outputText value="Title" />
