@@ -11,19 +11,20 @@
 	<h:outputStylesheet library="default" name="css/style.css" />
 </h:head>
 <body>
-
 	<!-- Shell -->
 	<div class="shell">
 		<!-- Header -->
 		<div id="header">
-			<h1 id="logo">
+			<!-- <h1 id="logo">
 				<a href="#">VZ Mart</a>
-			</h1>
+			</h1> -->
 			<!-- Cart -->
 			<div id="cart">
 				<h:form>
 					<p:commandButton value="Post Advertisement"
 						styleClass="search-submit" onclick="PF('dlg2').show();" />
+						
+				
 				</h:form>
 
 				<div class="cl">&nbsp;</div>
@@ -91,16 +92,21 @@
 							itemStyle="text-align:center;width:237px;height :181px;"
 							responsive="true">
 							<p:panelGrid columns="2" columnClasses="label,value"
-								layout="grid" styleClass="ui-panelgrid-blank">
+								layout="grid" styleClass="ui-panelgrid-blank" style="align:left">
 								<f:facet name="header">
 									<p:graphicImage url="#{resource['default:images/small1.jpg']}">
 									</p:graphicImage>
 								</f:facet>
-								<h:outputText value="Name:" />
-								<h:outputText value="#{advertiseVar.title}" />
-
+								
+								<h:outputText value="Title" />
+								<h:outputText value="#{advertiseVar.title}" style="font-weight: bold" />
+								
 								<h:outputText value="Description" />
-								<h:outputText value="#{advertiseVar.description}" />
+								<h:outputText value="#{advertiseVar.description}" style="font-weight: bold" />
+								
+								<h:outputText value="Price" />
+								<h:outputText value="#{advertiseVar.price}" style="font-weight: bold" />
+								
 							</p:panelGrid>
 							<f:facet name="footer">
                 In total there are  #{fn:length(carouselBean.needAdvertisementList)} Ads.
@@ -118,7 +124,7 @@
 			<div id="sidebar">
 				<!-- Search -->
 				<div class="box search">
-					<h2>
+					<h2 class="ui-widget-header">
 						Search by <span></span>
 					</h2>
 					<div class="box-content">
@@ -135,18 +141,18 @@
 						<f:selectItems value="#{advertisement.categoryMap}" />
 					</p:selectOneMenu>
 	 		<p:commandButton  styleClass="search-submit"  update=":searchform:searchResultBlock"
-	 			oncomplete="PF('searchProdWidget').show()" icon="ui-icon-search" value="Search" action="#{searchView.getSearchResults}" >
+	 			oncomplete="PF('searchProdWidget').show()" value="Search" action="#{searchView.getSearchResults}" >
 	 			
-	 			<p>
+	 			<!-- <p>
 								<a href="#" class="bul">Advanced search</a><br />
-							</p>
+							</p> -->
             </p:commandButton>
             <p:ajaxStatus onstart="PF('statusDialog').show()"
 		onsuccess="PF('statusDialog').hide()" />
 
 	<p:dialog widgetVar="statusDialog" modal="true" draggable="false"
 		closable="false" resizable="false" showHeader="false">
-		<p:graphicImage name="#{resource['default:images/ajaxloadingbar.gif']}" />
+		<p:graphicImage url="#{resource['default:images/ajaxloadingbar.gif']}" />
 	</p:dialog>
 						</h:form>
 					</div>
@@ -155,7 +161,7 @@
 				
 				<!-- Categories -->
 				<div class="box categories">
-					<h2>
+					<h2 class="ui-widget-header">
 						Categories <span></span>
 					</h2>
 					<div class="box-content">
@@ -193,15 +199,13 @@
 
 	</div>
 	<!-- End Shell -->
-	<p:dialog header="POST YOUR ADVERTISEMENT HERE !" widgetVar="dlg2"
-		modal="true" height="450" width="510">
+	<p:dialog header="Post Advertisement" widgetVar="dlg2" modal="true" >
 		<h:form enctype="multipart/form-data">
 			<p:messages id="messages" showDetail="true" autoUpdate="true"
 				closable="true" />
-			<h:panelGrid columns="3" cellpadding="20" cellspacing="20">
-				<h:outputLabel for="category" value="Select Category" />
-				<p:message for="Title" />
-
+			<p:panelGrid columns="2" cellpadding="10" cellspacing="10">
+				<p:outputLabel for="category" value="Select Category" />
+				
 				<p:selectOneMenu styleClass="field" id="category"
 					value="#{advertisement.categroy}">
 					<f:selectItem itemLabel="Select Category" itemValue=""
@@ -209,48 +213,38 @@
 					<f:selectItems value="#{advertisement.categoryMap}" />
 				</p:selectOneMenu>
 
-				<h:outputLabel for="requestType" value="I Want to : " />
-				<p:message for="requestType" />
+				<p:outputLabel for="requestType" value="I Want to : " />
 				<p:selectOneRadio id="requestType"
 					value="#{advertisement.requestType}">
 					<f:selectItem itemLabel="Sell" itemValue="1" />
 					<f:selectItem itemLabel="Buy" itemValue="2" />
 				</p:selectOneRadio>
 
-				<h:outputLabel for="Title" value="Title" />
+				<p:outputLabel for="Title" value="Title" />
 				<p:inputText id="Title" value="#{advertisement.title}"
 					required="true" label="Title" />
-				<p:message for="Title" />
 
-				<h:outputLabel for="Description" value="Description" />
+				<p:outputLabel for="Description" value="Description" />
 				<p:inputText id="Description" value="#{advertisement.description}"
 					required="true" label="Description" />
-				<p:message for="Description" />
 
-				<h:outputLabel for="Picture" value="Picture" />
-				<p:fileUpload id="Picture" value="#{advertisement.file}"/>
-				<p:message for="Picture" />
-
-				<h:outputLabel for="Price" value="Price" />
+				<p:outputLabel for="Price" value="Price" />
 				<p:inputText id="Price" value="#{advertisement.price}"
 					required="true" label="Price"  />
-				<p:message for="Price" />
 
-				<h:outputLabel for="Phone" value="Phone" />
+				<p:outputLabel for="Phone" value="Phone" />
 				<p:inputText id="Phone" value="#{advertisement.phone}"  label="Phone" />
-				<p:message for="Phone" />
 
 				<h:outputLabel for="Email" value="Email" />
 				<p:inputText id="Email" value="#{advertisement.email}"
 					required="true" label="Email" />
-				<p:message for="Email" />
 
-				<f:facet name="footer">
-					<p:commandButton value="POST" 
+				
+					<p:commandButton styleClass="ralign" value="Post Advertisement" 
 						actionListener="#{advertisement.createAd}" />
-				</f:facet>
+				
 
-			</h:panelGrid>
+			</p:panelGrid>
 		</h:form>
 	</p:dialog>
 
@@ -271,13 +265,13 @@
 				<h:outputText value="#{carouselBean.selectedAdvertisement.email}" />
 			</p:outputPanel>
 		</p:dialog>
+		
 	</h:form>
 
 	<h:form id="searchform">
 		<p:dialog header="Search Results" widgetVar="searchProdWidget"
 			modal="true" showEffect="fade" hideEffect="fade" resizable="false"
 			width="200">
-			
 			<p:outputPanel  id="searchResultBlock" style="text-align:center;">
 				<p:dataScroller value="#{searchView.searchList}" var="searchAdv"
 					chunkSize="2">

@@ -1,0 +1,729 @@
+/*------------- Latest Component container test -------------*/
+.ui-widget {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	font-style: normal;
+}
+
+.ui-widget input,
+.ui-widget select,
+.ui-widget textarea,
+.ui-widget button {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	font-style: normal;
+}
+
+.ui-widget-header {
+	font-weight: bold;
+}
+.ui-widget-content {
+	border: 0px solid #dddddd !important;
+	color: #333333;
+}
+
+.ui-state-default, .ui-widget-content .ui-state-default,
+ .ui-widget-header .ui-state-default {
+    border: 1px solid #CCCCCC;
+}
+
+
+/*---------------------COMMAND LINK -------------------*/
+.ui-widget-content a {
+	color: #0066CC;
+    cursor: pointer;
+    outline: medium none;
+    text-decoration: none
+}
+
+.ui-widget-content a:hover {
+    text-decoration: underline;
+}
+
+.ui-widget-header a {
+	color: #ffffff;
+}
+
+.action-link {
+	background: url("#{resource['primefaces-vzmart:images/actionLinkIcon.png']}") no-repeat scroll right 3px transparent;
+    color: #0066CC !important;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 11px !important;
+    font-weight: bold;
+    padding-right: 15px;
+    text-transform: uppercase;
+}
+
+/*---------------------OVERLAY-------------------*/
+.ui-widget-overlay {
+	background: #666666 url("#{resource['primefaces-vzmart:images/ui-bg_diagonals-thick_20_666666_40x40.png']}") 50% 50% repeat;
+	opacity: .5;
+	filter: Alpha(Opacity=50); /* support: IE8 */
+}
+.ui-widget-shadow {
+	margin: -5px 0 0 -5px;
+	padding: 5px;
+	background: #000000 url("#{resource['primefaces-vzmart:images/ui-bg_flat_10_000000_40x100.png']}") 50% 50% repeat-x;
+	opacity: .2;
+	filter: Alpha(Opacity=20); /* support: IE8 */
+	border-radius: 5px;
+}
+
+/*----Overwrite------*/
+
+/*----------------Widget------------------*/
+.ui-widget input {
+	border: 1px solid #D2D3D4;
+    color: #595A5D;
+    height: 23px;
+    line-height: 23px;
+    padding: 5px;
+}
+
+
+
+/*-------- TextBox ----------*/
+
+.ui-inputtext {
+    border: 1px solid #D2D3D4;
+    line-height: 23px;
+    height: 33px !important;
+}
+
+/*-------- TextArea ----------*/
+.ui-inputtextarea {
+	width : 100%;
+}
+
+/*----------------DROPDOWN------------------*/
+.ui-selectonemenu {
+	background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #D2D3D4;
+    border-radius: 3px;
+    height: 32px;
+    padding: 0 5px;
+    position: relative;
+}
+.ui-selectonemenu .ui-selectonemenu-label {
+    color: #333333;
+    display: inline-block;
+    font-size: 12px;
+    height: 35px;
+    line-height: 35px;
+    min-width: 15px;
+    padding: 0 35px 0 0;
+    position: relative;
+    text-align: left;
+    text-indent: 0;
+    vertical-align: middle;
+}
+.ui-selectonemenu .ui-selectonemenu-trigger {
+    background: url("#{resource['primefaces-vzmart:images/vz_dropdownIcons.png']}") no-repeat scroll center center transparent;
+    height: 33px;
+    line-height: 33px;
+    padding: 0;
+    position: absolute;
+    right: 0;
+    text-align: left;
+    top: 0;
+    width: 10px;
+}
+.ui-selectonemenu-panel {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #CCCCCC;
+    border-radius: 3px;
+    color: #333333;
+}
+
+.ui-selectonemenu-panel .ui-selectonemenu-list {
+	border: 1px solid #CCCCCC !important;
+	padding: 11px 13px !important;
+	position: relative !important;
+	top: -5px important;
+}
+.ui-selectonemenu-panel.ui-shadow {
+    box-shadow: none;
+}
+
+.ui-selectonemenu-panel .ui-selectonemenu-list-item {
+    font-family: Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	font-style: normal;
+}
+.ui-selectonemenu-panel .ui-selectonemenu-item {
+    cursor: pointer;
+    font-weight: normal;
+}
+
+
+/*----------------BUTTON------------------*/
+.ui-button {
+	background: url("#{resource['primefaces-vzmart:images/vz_btn_primary.png']}")  no-repeat scroll 0 0 transparent !important;
+    display: inline-block;
+    height: 35px;
+    margin: 0;
+    overflow: hidden;
+    padding: 0 0 0 10px !important;
+    vertical-align: middle;
+    border: 0px solid #CCCCCC !important;
+    color: #FFFFFF;
+    
+}
+
+.ui-button.ui-state-hover  {
+	background-position : 0 -80px !important;
+	
+}
+
+.ui-button.ui-state-hover  span {
+	background-position : right -120px !important;
+}
+
+.ui-button.ui-priority-primary{
+	background: url("#{resource['primefaces-vzmart:images/vz_btn_primary.png']}")  no-repeat scroll 0 0 transparent !important;
+}
+
+.ui-button.ui-priority-primary{
+	background: url("#{resource['primefaces-vzmart:images/vz_btn_primary.png']}")  no-repeat scroll 0 0 transparent !important;
+}
+.ui-button.ui-priority-primary.ui-state-hover  {
+	background-position : 0 -80px !important;
+}
+
+.ui-button.ui-priority-primary.ui-state-hover  span {
+	background-position : right -120px !important;
+}
+
+.ui-button.ui-priority-secondary{
+	background: url("#{resource['primefaces-vzmart:images/vz_btn_secondary.png']}")  no-repeat scroll 0 0 transparent !important;
+}
+
+.ui-button.ui-priority-secondary.ui-state-hover  {
+	background-position : 0 -80px !important;
+}
+
+.ui-button.ui-priority-secondary.ui-state-hover  span {
+	background-position : right -120px !important;
+}
+
+button > span{ position:relative; }
+
+.ui-button-icon-only .ui-icon,.ui-button-text-icon .ui-icon,.ui-button-text-icons .ui-icon,.ui-button-icons-only .ui-icon {
+	margin-left: 6px;
+	margin-top: -8px;
+	position: absolute;
+	top: 50%;
+}
+.ui-button-text-icon .ui-button-text,.ui-button-text-icons .ui-button-text{
+	padding: 5px 12px 5px 25px;
+}
+.ui-button .ui-button-text, .ui-button-text-only .ui-button-text, .ui-button-icon-only .ui-button-text,.ui-button-icons-only .ui-button-text {
+  	background: url("#{resource['primefaces-vzmart:images/vz_btn_primary.png']}") no-repeat scroll right -40px transparent;
+    color: #FFFFFF;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 30px !important;
+    padding: 0 15px;
+    text-align: center;
+    text-indent: -10px;
+    vertical-align: middle;
+}
+
+.ui-button.ui-priority-primary .ui-button-text {
+	background: url("#{resource['primefaces-vzmart:images/vz_btn_primary.png']}") no-repeat scroll right -40px transparent;
+}
+
+.ui-button.ui-priority-secondary .ui-button-text {
+	 background: url("#{resource['primefaces-vzmart:images/vz_btn_secondary.png']}") no-repeat scroll right -40px transparent;
+	 color: #808080;
+}
+
+.ui-button .ui-button-icon-right {
+     background: url("#{resource['primefaces-vzmart:images/vz_dropdownIcons.png']}") no-repeat scroll center center transparent;
+    height: 17px;
+    line-height: 35px;
+    margin: 0;
+    min-width: 0;
+    padding: 0;
+    position: absolute;
+    right: 5px;
+    width: 20px;
+}
+/*----------------TABLE------------------*/
+.ui-panelgrid {
+    font-size: 12px;
+    border-collapse: collapse;
+}
+.ui-panelgrid thead th.first, .ui-datatable-tablewrapper thead th.first{
+     background: url("#{resource['primefaces-vzmart:images/vz_gridheader_bg.png']}") no-repeat scroll 0 0 #595A5D;
+}
+
+.ui-datatable-tablewrapper thead th {
+    background-color: #595A5D;
+    color: #FFFFFF;
+    padding: 20px 8px 10px !important;
+    vertical-align: bottom !important;
+    border : 0px solid #FFFFFF !important;
+}
+
+.ui-panelgrid th *{
+  	color: #FFFFFF;
+    font-weight: bold;
+}
+
+.ui-panelgrid th,  .ui-panelgrid td, .ui-datatable-tablewrapper td,  .ui-datatable-tablewrapper th {
+    line-height: 15px;
+    padding: 15px 8px;
+    text-align: left !important;
+}
+
+
+.ui-panelgrid thead th.last , .ui-datatable-tablewrapper thead th.last{
+    background: url("#{resource['primefaces-vzmart:images/vz_gridheader_bg.png']}") no-repeat scroll right -100px #595A5D;
+}
+.ui-panelgrid td, .ui-datatable-tablewrapper td {
+    border-color: inherit;
+    border-style: solid;
+    border-width: 0px !important;
+    color: #333333  !important;
+    vertical-align: top  !important;
+    line-height: 15px  !important;
+    padding: 15px 8px  !important;
+    text-align: left  !important;
+}
+
+.ui-panelgrid-custom td {
+ vertical-align: middle  !important;
+ padding: 0 !important;
+}
+.ui-datatable-tablewrapper td{
+	border-bottom: 1px solid #D2D3D4  !important;
+}
+.ui-datatable .ui-selection-column .ui-chkbox-all {
+    display: block;
+    height: 16px;
+    margin: 0 auto;
+    width: auto !important;
+}
+/*----------------PAGINATOR------------------*/
+.ui-paginator {
+	background: none repeat scroll 0 0 #ECEDEE;
+    border: 1px solid #D2D3D4;
+    font-size: 12px;
+    margin: 0 0 10px;
+    padding: 6px 15px;
+    vertical-align: top;
+	
+	
+}
+/*----------------OVERLAY------------------*/
+.ui-widget-overlay {
+	 background: #000000 !important;
+ }
+
+.ui-dialog {
+    background-color: #FFFFFF;
+    border-radius: 5px;
+    color: #222222;
+    padding: 40px 45px !important;
+    text-align: left;
+    z-index: 50001;
+    box-shadow : 0 0 1px rgba(0, 0, 0, 0.5) !important;
+}
+
+.ui-dialog .ui-dialog-title {
+	font-family: "VzApexMediumItalic","VzApexMedium",Arial,Helvetica,sans-serif;
+    font-weight: normal;
+    line-height: 100%;
+    font-size: 21px;
+}
+
+.ui-dialog-titlebar-close, .ui-dialog-titlebar-close.ui-state-hover {
+	background: url("#{resource['primefaces-vzmart:images/vz_modal_close.png']}") 0 0 no-repeat;
+	height: 32px;
+    text-indent: -9999px;
+    width: 32px;
+    padding : 0px !important;
+    top : -25px !important;
+    right :-35px !important;
+    position: absolute;
+}
+
+.ui-tabs {
+	border: 1px solid #D2D3D4 !important;
+	padding : 0px !important;
+}
+.ui-tabs .ui-tabs-nav {
+	background: url("#{resource['primefaces-vzmart:images/vz_tabs_hor_bg.png']}")  repeat-x scroll 0 0 transparent;
+	padding :0 !important;
+	margin:0 !important; 
+}
+
+.ui-tabs .ui-tabs-nav li {
+	background: url("#{resource['primefaces-vzmart:images/vz_tabs_hor_sep.png']}") no-repeat scroll right 0 transparent;
+    color: #595A5D;
+    display: inline-block;
+    font-family: "VzApexMedium";
+    font-size: 13px;
+    height: 50px;
+    line-height: 50px;
+    padding: 27px 42px 11px 10px;
+    text-decoration: none;
+    text-transform: uppercase;
+    border : none !important;
+    top:0  !important;
+    margin:0 !important; 
+}
+
+.ui-tabs-selected  {
+	background: none repeat scroll 0 0 #FFFFFF !important;
+    border-left: 1px solid #D2D3D4 !important;
+    border-right: 1px solid #D2D3D4 !important;
+    position: relative !important;
+    z-index: 5 !important;
+}
+
+.ui-tabs .ui-tabs-nav li a {
+    color: #595A5D;
+    display: inline-block;
+    font-family: "VzApexMedium";
+    font-size: 13px;
+    line-height: 17px;
+    padding: 20px 10px 11px 10px !important;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.ui-tabs .ui-tabs-nav li.ui-tabs-selected  a{
+    border-top: 2px solid #ED1C24;
+    color: #ED1C24;
+    padding-top: 18px !important;
+}
+
+/*-------------- Tree View ------------*/
+.ui-tree {
+    width: auto !important;
+}
+.ui-tree .ui-tree-container {
+	padding-right: 0 !important;
+}
+
+.ui-tree .ui-treenode {
+	line-height: 14px !important;
+    margin-bottom: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    margin-top: 0 !important;
+    padding-bottom: 8px !important;
+    padding-top: 2px !important;
+}
+.ui-tree .ui-icon {
+    background-repeat: no-repeat;
+    display: block;
+    overflow: hidden;
+    text-indent: -99999px;
+    height: 16px;
+    width: 16px;
+}
+.ui-tree .ui-treenode-content .ui-icon.ui-icon-triangle-1-e {
+   background: url("#{resource['primefaces-vzmart:images/treeview-default.gif']}")  no-repeat scroll -80px -2px;
+    cursor: pointer;
+}
+
+
+.ui-tree .ui-treenode-content .ui-icon.ui-icon-triangle-1-s {
+   background: url("#{resource['primefaces-vzmart:images/treeview-default.gif']}") no-repeat scroll -64px -24px transparent;
+    cursor: pointer;
+}
+
+.ui-tree-container li, .ui-treenode-children li {
+	background-attachment: scroll;
+    background-clip: border-box;
+    background-color: transparent;
+   /* background-image: url("#{resource['primefaces-vzmart:images/treeview-default-line.gif']}") !important;*/
+    background-origin: padding-box;
+    background-repeat: no-repeat;
+    background-size: auto auto;
+}
+
+.ui-tree-container .ui-treenode-parent.tree-first-row, .ui-treenode-children .ui-treenode-parent.tree-first-row {
+	padding-top : 5px !important;
+	background-position: 0px -180px !important;
+}
+
+.ui-tree-container .ui-treenode-parent.tree-last-row, .ui-treenode-children .ui-treenode-parent.tree-last-row {
+	 background-image :none !important;
+}
+
+.ui-tree-container .ui-treenode-leaf.tree-last-leaf-row, .ui-treenode-children .ui-treenode-leaf.tree-last-leaf-row {
+	  background-position: 0 -1766px !important;
+	  background-repeat: no-repeat !important;
+}
+
+.ui-tree .ui-treenode-content .ui-icon.ui-icon-folder-open {
+   background: url("#{resource['primefaces-vzmart:images/ui-icons_616161_256x240.png']}") no-repeat scroll -16px -96px transparent;
+    cursor: pointer;
+}
+.ui-icon-folder-collapsed {
+   background: url("#{resource['primefaces-vzmart:images/ui-icons_616161_256x240.png']}") no-repeat scroll 0 -96px transparent;
+}
+.ui-tree .ui-treenode-label {
+    display: inline-block;
+    vertical-align: top;
+    line-height: 10px !important;
+    padding: 2px 5px;
+    vertical-align: top;
+    color: #0066CA;
+	font-size: 12px;
+    font-weight: bold;
+}
+
+.ui-tree .ui-treenode-label.ui-state-highlight {
+	background-color: #AAAAAA !important;
+	padding: 2px 5px;
+	line-height: 10px !important;
+	margin: 0 !important;
+    vertical-align: top;
+    display: inline-block;
+    font-size: 12px;
+    font-weight: bold;
+}
+.ui-tree .ui-treenode-label.ui-state-hover, .ui-tree .ui-treenode-label.ui-state-highlight {
+	text-decoration:underline;
+	font-size: 12px !important;
+    font-weight: bold !important;
+}
+
+/*------- Accordian---------------------*/
+
+.ui-accordion .ui-accordion-header {
+	 background: url("#{resource['primefaces-vzmart:images/vz_accordionIcons.png']}") no-repeat scroll right bottom #ECEDEE;
+    color: #595A5D;
+    cursor: pointer;
+    display: block;
+    font-family: "VzApexMedium";
+    font-size: 12px;
+    margin: 0 0 2px;
+   	padding: 6px 0px;
+    text-transform: uppercase;
+}
+
+.ui-accordion .ui-accordion-header.ui-state-hover{
+	 background: url("#{resource['primefaces-vzmart:images/vz_tabhoverbg.png']}") repeat-x scroll 0 bottom #FFFFFF;
+}
+
+/* ---------------DATA TABLE-------------------------*/
+.ui-datatable thead th, .ui-datatable tbody td, .ui-datatable tfoot td{
+	font-size: 12px;
+}
+ .ui-datatable-even:hover,  .ui-datatable-odd:hover {
+    background-color: #ECEDEE  !important;
+}
+
+.ui-sortable-column .ui-sortable-column-icon {
+	height: 10px;
+     width: 10px;
+}
+
+.ui-sortable-column .ui-sortable-column-icon.ui-icon-carat-2-n-s {
+	background: url("#{resource['primefaces-vzmart:images/vz_header_asc.png']}") no-repeat scroll 0 0 transparent !important;
+}
+.ui-sortable-column .ui-sortable-column-icon.ui-icon-triangle-1-n{
+	background: url("#{resource['primefaces-vzmart:images/vz_header_asc.png']}") no-repeat scroll 0 0 transparent !important;
+}
+.ui-sortable-column .ui-sortable-column-icon.ui-icon-triangle-1-s{
+	background: url("#{resource['primefaces-vzmart:images/vz_header_desc.png']}") no-repeat scroll 0 0 transparent !important;
+}
+
+.ui-chkbox-box .ui-chkbox-icon {
+	 height: 20px;
+	background: url("#{resource['primefaces-vzmart:images/ui-icons_228ef1_256x240.png']}") no-repeat scroll -64px -144px transparent !important;
+}
+
+.ui-dialog .ui-dialog-content  {
+	overflow: visible !important;
+}
+
+
+/*--------------- MENU ---------------------*/
+.ui-menu {
+    background: none repeat scroll 0 0 #FFFFFF !important;
+    border: 1px solid #CCCCCC;
+    border-radius: 3px;
+    color: #333333;
+}
+
+/*--------------- BOX ---------------------*/
+
+.vz_box_wb {
+    border: medium none;
+    margin-top: 0;
+}
+.vz_box, .vz_box_wb, .vz_box_wop {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #D2D3D4;
+	border-radius : 10px;
+}
+.vz_box_content{
+    padding: 0 20px 20px;
+}
+/*----------- HEADER -----------------*/
+.clearfix:after {
+	clear: both;
+	content: ".";
+	display: block;
+	height: 0;
+	visibility: hidden;
+}
+
+.vz_pageHeaderblk {
+	border-bottom: 2px solid #ED1C24;
+	padding: 0 0;
+}
+
+.grid_lgray {
+	background-color: #ECEDEE !important;
+}
+
+.clearfix {
+	display: block;
+}
+
+.specialtabs2 {
+	width: 100%;
+}
+
+.specialtabs2 ul {
+	border: medium none;
+	bottom: -10px;
+	margin: 0 auto;
+	min-height: 45px;
+	overflow: visible;
+	padding: 0 5px;
+	position: relative;
+	width: 950px;
+	z-index: 5;
+}
+
+ol,ul {
+	list-style: none outside none;
+}
+.specialtabs2 li {
+    float: left;
+    margin: 0;
+}
+li {
+    list-style: none outside none;
+}
+
+/*----- Pagination----------------*/
+.ui-state-default .ui-icon {
+    width: 16px;
+}
+
+.ui-icon-seek-next {
+	background: url("#{resource['primefaces-vzmart:images/ui-icons_38667f_256x240.png']}") -32px -160px !important;
+}
+
+.ui-icon-seek-prev {
+	background: url("#{resource['primefaces-vzmart:images/ui-icons_38667f_256x240.png']}")  -48px -160px !important;
+}
+
+/*-------- Search Icon ----------*/
+
+.searchlink {
+    background: url("#{resource['primefaces-vzmart:images/vz_searchIcon.png']}") no-repeat scroll 0 6px #FFFFFF !important;
+    border-color: #D2D3D4;
+    border-image: none;
+    border-style: solid solid none none;
+    border-width: 1px 1px medium medium;
+    height: 26px;
+    position: absolute;
+    width: 30px;
+    text-indent: -9999px;
+    right: 0;
+}
+.searchblk {
+    position: relative;
+     float:left;
+}
+
+input.searchfield[type="text"] {
+    padding: 6px 20px 5px 10px;
+    position: relative;
+    width: 165px;
+    height: 33px;
+}
+
+/*---------------------- Positioning ------------------------*/
+.mar0 {
+	margin: 0 !important;
+}
+.martop20 {
+	margin-top: 20px !important;
+}
+.padtop20 {
+	padding-top: 20px !important;
+}
+.padtopbot20 {
+	padding: 20px 0 !important;
+}
+.lalign {
+	float: left;
+}
+.ralign {
+	float: right;
+}
+.marright10 {
+    margin-right: 10px !important;
+}
+.marleft10 {
+    margin-left: 10px !important;
+}
+.marbottom15 {
+    margin-bottom: 15px !important;
+}
+.martop20 {
+    margin-top: 20px !important;
+}
+.martop5 {
+    margin-top: 5px !important;
+}
+.padtop15 {
+    padding-top: 15px !important;
+}
+.padtop10 {
+    padding-top: 10px !important;
+}
+.padbot10 {
+    padding-bottom: 10px !important;
+}
+.pad10 {
+    padding: 0 10px;
+}
+.padtopbot10 {
+    padding: 10px 0;
+}
+.padleft10 {
+    padding-left: 10px;
+}
+.pad30 {
+    padding-left: 30px;
+}
+h1 {
+	font-size: 26px;
+	margin: 20px 0 20px;
+}
+h1, h2, h3, h4 {
+    font-family: "VzApexMediumItalic","VzApexMedium",Arial,Helvetica,sans-serif;
+    font-weight: normal;
+    line-height: 100%;
+}
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 2px;
+    font-size: 12px !important;
+}
