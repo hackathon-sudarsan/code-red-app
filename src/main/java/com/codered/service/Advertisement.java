@@ -49,7 +49,8 @@ public class Advertisement extends UserProfile {
 	public void init() {
 		categoryMap = new HashMap<String, String>();
 		System.out.println("CAlling store procedure" + categoryMap);
-		categoryList = new CodeRedServices().getALLCategory();
+		//categoryList = new CodeRedServices().getALLCategory();
+		categoryList = new CodeRedServices().getALLCategoryTestData();
 		for (Category catObj : categoryList) {
 			categoryMap.put(catObj.getCategoryName(), catObj.getCategoryName());
 		}
@@ -147,7 +148,7 @@ public class Advertisement extends UserProfile {
 					.getCurrentInstance().getApplication().getELResolver()
 					.getValue(el, null, "advertisement");
 
-			if(adObj != null && adObj.getVzId() != null) {
+			if(adObj != null && adObj.getVzId() == null) {
 				adObj.setVzId("V492750");
 			}
 			adObj.setFirstName("Jayaraj");

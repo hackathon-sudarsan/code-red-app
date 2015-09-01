@@ -63,29 +63,12 @@
 			</f:facet>
 		</p:dataTable>
 
-  <!-- <p:dataTable id="basicDT" var="car" value="#{dtSelectionView.adList}">
-        <f:facet name="header">
-            Basic
-        </f:facet>
-        <p:column headerText="Id">
-            <h:outputText value="#{car.title}" />
-        </p:column>
-        <p:column style="width:32px;text-align: center">
-             <p:commandButton update=":myform:multiCarDetailtest" oncomplete="PF('multiCarDialog').show()" icon="ui-icon-search" title="View">
-                <f:setPropertyActionListener value="#{car}" target="#{dtSelectionView.selectedAdv}" />
-            </p:commandButton>
-        </p:column>
-    </p:dataTable> -->
-		<p:dialog header="Selected Products" widgetVar="multiCarDialog"
+		<p:dialog header="Confirmation" widgetVar="multiCarDialog"
 			modal="true" showEffect="fade" hideEffect="fade" resizable="false"
 			width="200">
 			<p:outputPanel style="text-align:center;">
 			<h:outputText id="multiCarDetailtest"  value="title" />
-                <h:outputText value="#{dtSelectionView.selectedAdv.title}" />
-				<!-- <ui:repeat value="#{dtSelectionView.selectedAdList}" var="ad">
-					<h:outputText value="#{ad.title} - #{ad.description}"
-						style="display:block" />
-				</ui:repeat> -->
+                <h:outputText value="Approved Sucessfully." />
 			</p:outputPanel>
 		</p:dialog> 
 	</h:form>
