@@ -12,7 +12,7 @@
 
 </h:head>
 <h:body>
-
+<div class="box">
 	<h:form id="myform">
 		<p:dataTable id="checkboxDT" var="adv"
 			value="#{dtSelectionView.adList}"
@@ -57,7 +57,7 @@
 			</p:column>
 
 			<f:facet name="footer">
-				<p:commandButton icon="ui-icon-search" value="Approve !"
+				<p:commandButton value="Approve"
 					action="#{dtSelectionView.approveAd}"
 					oncomplete="PF('multiCarDialog').show()" />
 			</f:facet>
@@ -89,6 +89,6 @@
 			</p:outputPanel>
 		</p:dialog> 
 	</h:form>
-
+</div>
 </h:body>
 </html>

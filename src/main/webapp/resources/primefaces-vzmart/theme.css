@@ -88,7 +88,7 @@
 .ui-inputtext {
     border: 1px solid #D2D3D4;
     line-height: 23px;
-    height: 25px !important;
+    height: 20px !important;
 }
 
 /*-------- TextArea ----------*/
@@ -138,7 +138,7 @@
 
 .ui-selectonemenu-panel .ui-selectonemenu-list {
 	border: 1px solid #CCCCCC !important;
-	padding: 11px 13px !important;
+	padding: 5px 0px !important;
 	position: relative !important;
 	top: -5px important;
 }
@@ -290,7 +290,7 @@ button > span{ position:relative; }
     color: #333333  !important;
     vertical-align: top  !important;
     line-height: 15px  !important;
-    padding: 15px 8px  !important;
+    padding: 4px 8px  !important;
     text-align: left  !important;
 }
 
@@ -542,9 +542,22 @@ button > span{ position:relative; }
 	background: url("#{resource['primefaces-vzmart:images/ui-icons_228ef1_256x240.png']}") no-repeat scroll -64px -144px transparent !important;
 }
 
+.ui-state-active .ui-icon  {
+	 height: 20px;
+	background: url("#{resource['primefaces-vzmart:images/ui-icons_38667f_256x240.png']}") no-repeat scroll -64px -144px transparent !important;
+}
+.ui-icon-bullet {
+    background-position: -80px -144px;
+}
+
+.ui-chkbox-box  .ui-icon-blank{
+	background: none !important;
+}
 .ui-dialog .ui-dialog-content  {
 	overflow: visible !important;
 }
+
+
 
 
 /*--------------- MENU ---------------------*/

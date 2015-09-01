@@ -124,11 +124,12 @@
 			<div id="sidebar">
 				<!-- Search -->
 				<div class="box search">
-					<h2 class="ui-widget-header">
-						Search by <span></span>
-					</h2>
+					<h2 class="ui-widget-header">Search <span></span></h2>
+				
 					<div class="box-content">
 						<h:form>
+				
+				<p:panelGrid columns="1" cellpadding="10" cellspacing="10">
 					<label>Keyword</label>
 					<p:inputText id="txt1" value="#{searchView.searchStr}" required="true" label="Text 1">
 						<f:validateLength minimum="2" />
@@ -140,13 +141,12 @@
 						<f:selectItem itemLabel="Select Category" itemValue="" noSelectionOption="true" />
 						<f:selectItems value="#{advertisement.categoryMap}" />
 					</p:selectOneMenu>
-	 		<p:commandButton  styleClass="search-submit"  update=":searchform:searchResultBlock"
+	 		
+	 		
+	 			<p:commandButton  styleClass="search-submit"  update=":searchform:searchResultBlock"
 	 			oncomplete="PF('searchProdWidget').show()" value="Search" action="#{searchView.getSearchResults}" >
-	 			
-	 			<!-- <p>
-								<a href="#" class="bul">Advanced search</a><br />
-							</p> -->
-            </p:commandButton>
+	 			</p:commandButton>
+            </p:panelGrid>
             <p:ajaxStatus onstart="PF('statusDialog').show()"
 		onsuccess="PF('statusDialog').hide()" />
 
