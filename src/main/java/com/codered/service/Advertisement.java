@@ -49,8 +49,8 @@ public class Advertisement extends UserProfile {
 	public void init() {
 		categoryMap = new HashMap<String, String>();
 		System.out.println("CAlling store procedure" + categoryMap);
-		//categoryList = new CodeRedServices().getALLCategory();
-		categoryList = new CodeRedServices().getALLCategoryTestData();
+		categoryList = new CodeRedServices().getALLCategory();
+		//categoryList = new CodeRedServices().getALLCategoryTestData();
 		for (Category catObj : categoryList) {
 			categoryMap.put(catObj.getCategoryName(), catObj.getCategoryName());
 		}
