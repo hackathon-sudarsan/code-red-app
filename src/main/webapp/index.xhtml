@@ -238,10 +238,9 @@
 				<p:inputText id="Email" value="#{advertisement.email}"
 					required="true" label="Email" />
 
-		<h:outputLabel for="vzid" value="vzid" />
-				<p:inputText id="vzid" value="#{param['vzid']}"/>
+		         <h:outputLabel for="vzid" value="vzid" />
+				 <p:inputText id="vzid" value="#{advertisement.vzId}"/>
 
-				
 					<p:commandButton styleClass="ralign" value="Post Advertisement" 
 						actionListener="#{advertisement.createAd}" />
 				

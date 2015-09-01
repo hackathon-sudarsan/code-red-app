@@ -147,10 +147,13 @@ public class Advertisement extends UserProfile {
 					.getCurrentInstance().getApplication().getELResolver()
 					.getValue(el, null, "advertisement");
 
-			adObj.setVzId("V492750");
+			if(adObj != null && adObj.getVzId() != null) {
+				adObj.setVzId("V492750");
+			}
 			adObj.setFirstName("Jayaraj");
 			adObj.setLastName("Mani");
-			System.out.println("CAlling store procedure" + adObj);
+			
+			System.out.println("CAlling store procedure===>" + adObj);
 			 if(file != null) {
 				 System.out.println("File " +  file.getFileName() + " is uploaded.");
 			 }
@@ -172,9 +175,11 @@ public class Advertisement extends UserProfile {
 		return "Advertisement [categroy=" + categroy + ", requestType="
 				+ requestType + ", title=" + title + ", description="
 				+ description + ", price=" + price + ", primaryKey="
-				+ primaryKey + "]" + "UserProfile [firstName=" + firstName
-				+ ", lastName=" + lastName + ", vzId=" + vzId + ", phone="
-				+ phone + ", email=" + email + "]";
+				+ primaryKey + ", dateAdded=" + dateAdded + ", adminMapOid="
+				+ adminMapOid + ", file=" + file + ", categoryMap="
+				+ categoryMap + ", categoryList=" + categoryList + "]";
 	}
+
+	
 
 }
