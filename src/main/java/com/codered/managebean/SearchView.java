@@ -26,6 +26,13 @@ public class SearchView {
 		System.out.println(" SEARCH RESULTS" + searchList);
 	}
 	
+	public void getSearchResults(String categFilter) {
+		System.out.println(" cate ======> "+categFilter);
+		//searchList = adService.searchResults(searchStr, category);
+		searchList = adService.searchResults(null, categFilter);
+		System.out.println(" SEARCH RESULTS" + searchList);
+	}
+	
 	public String getSearchStr() {
 		return searchStr;
 	}

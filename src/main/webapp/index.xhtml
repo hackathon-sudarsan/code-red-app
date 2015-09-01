@@ -165,11 +165,19 @@
 					</h2>
 					<div class="box-content">
 						<ul>
+						<h:form>
 							<p:outputPanel>
 								<ui:repeat value="#{advertisement.categoryList}" var="categ">
-									<li><h:outputText value="#{categ.categoryName}" /></li>
+									<li>
+									<p:commandLink update=":searchform:searchResultBlock"
+										oncomplete="PF('searchProdWidget').show()" icon="ui-icon-search"
+										title="View" value="#{categ.categoryName}" action="#{searchView.getSearchResults(categ.categoryName)}" >
+									</p:commandLink>
+									
+									</li>
 								</ui:repeat>
 							</p:outputPanel>
+							</h:form>
 						</ul>
 					</div>
 				</div>
